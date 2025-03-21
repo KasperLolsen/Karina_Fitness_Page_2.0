@@ -1,90 +1,117 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   return (
     <section id="home" className="relative min-h-screen overflow-hidden">
-      {/* Full-width background image */}
+      {/* Background with elegant overlay */}
       <div className="absolute inset-0 z-0">
         <img 
           src="/images/IMG_3281.jpeg" 
           alt="The Protein Princess" 
-          className="w-full h-full object-cover md:object-cover object-[60%_center] filter brightness-110"
-          onError={(e) => {
-            const target = e.target as HTMLImageElement;
-            target.src = "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80";
-          }}
+          className="w-full h-full object-cover"
         />
-        {/* Subtle pink gradient overlay from bottom to top with reduced opacity */}
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-secondary/20 to-transparent"></div>
+        {/* Elegant gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-primary/30 to-black/50"></div>
+        
+        {/* Decorative elements */}
+        <div className="absolute inset-0 bg-[url('/images/IMG_3674.png')] bg-no-repeat bg-[length:500px] bg-[center_top_5rem] opacity-5"></div>
+        
+        <div className="absolute bottom-0 w-full h-40 bg-gradient-to-t from-black/70 to-transparent"></div>
       </div>
-      
-      {/* Redesigned hero content */}
-      <div className="container relative z-10 flex items-center h-screen">
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="w-full px-6 md:px-12 text-center md:text-left"
-        >
-          {/* Main title with modern stacked effect */}
-          <div className="relative mb-8 md:mb-12 inline-block">
-            <motion.h1 
-              initial={{ y: 40, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter"
-            >
-              <div className="flex flex-col md:flex-row items-center md:items-end gap-2 md:gap-4">
-                <span className="text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.3)]">THE</span>
-                <motion.span 
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.6 }}
-                  className="text-primary drop-shadow-[0_4px_8px_rgba(0,0,0,0.3)]"
-                >
-                  PROTEIN PRINCESS
-                </motion.span>
-              </div>
-            </motion.h1>
-            
-            {/* Decorative underline */}
-            <motion.div 
-              initial={{ width: 0 }}
-              animate={{ width: "100%" }}
-              transition={{ duration: 1, delay: 1 }}
-              className="h-1 bg-primary rounded-full absolute bottom-0 left-0"
-            ></motion.div>
-          </div>
-          
-          {/* New tagline with fade-in effect */}
+
+      {/* Content wrapper */}
+      <div className="container relative z-10 mx-auto px-6 py-20 flex flex-col h-screen">
+        <div className="flex-1 flex flex-col justify-center items-center text-center">
+          {/* Animated badge */}
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="mb-12 max-w-2xl mx-auto md:mx-0"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={isLoaded ? { scale: 1, opacity: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative mb-6"
           >
-            <h2 className="text-xl md:text-3xl text-white font-light md:leading-relaxed">
-              <span className="block mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
-                STYRKE &bull; BALANSE &bull; TRANSFORMASJON
+            <img 
+              src="/images/IMG_3674.png" 
+              alt="The Protein Princess Logo" 
+              className="h-32 w-auto mx-auto mb-2"
+            />
+          </motion.div>
+
+          {/* Main heading with luxury styling */}
+          <motion.div
+            initial={{ y: 30, opacity: 0 }}
+            animate={isLoaded ? { y: 0, opacity: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mb-4 relative"
+          >
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-extrabold text-white tracking-tighter leading-none">
+              <span className="inline-block relative">
+                <span className="relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-white">
+                  TRANSFORM
+                </span>
+                <span className="absolute -bottom-2 left-0 right-0 h-0.5 bg-primary"></span>
               </span>
-              <span className="font-normal text-base md:text-xl opacity-90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
-                Din personlige reise mot en sterkere kropp og sjel
-              </span>
+            </h1>
+            <h2 className="text-4xl md:text-5xl font-light text-white tracking-wider mt-2">
+              <span className="text-primary">YOUR</span> BODY <span className="text-primary">&</span> MIND
             </h2>
           </motion.div>
-          
-          {/* Call to action button */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1.6, duration: 0.5 }}
-            className="mt-12"
+
+          {/* Elegant description */}
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={isLoaded ? { opacity: 1 } : {}}
+            transition={{ duration: 1, delay: 1.2 }}
+            className="max-w-xl mx-auto text-lg text-white/90 font-light leading-relaxed mb-8"
           >
-            <a href="#contact" className="inline-block bg-primary hover:bg-primary-dark text-white font-semibold py-4 px-10 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 text-lg">
-              Start din reise
+            Exclusive fitness coaching designed to elevate your strength, 
+            balance and transform your life through personalized training and nutrition.
+          </motion.p>
+
+          {/* CTA Button Group */}
+          <motion.div 
+            initial={{ y: 20, opacity: 0 }}
+            animate={isLoaded ? { y: 0, opacity: 1 } : {}}
+            transition={{ duration: 0.8, delay: 1.6 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center mt-6"
+          >
+            <a 
+              href="#contact" 
+              className="btn px-8 py-4 bg-primary text-white rounded-full font-medium tracking-wide hover:bg-primary-dark transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/30 flex items-center justify-center"
+            >
+              Begin Your Journey
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </a>
+            <a 
+              href="#services" 
+              className="btn px-8 py-4 bg-transparent text-white border border-white/30 rounded-full font-medium tracking-wide hover:bg-white/10 transform hover:scale-105 transition-all duration-300 flex items-center justify-center"
+            >
+              Explore Services
             </a>
           </motion.div>
+        </div>
+
+        {/* Elegant scroll indicator */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={isLoaded ? { opacity: 0.7 } : {}}
+          transition={{ duration: 1, delay: 2 }}
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+        >
+          <span className="text-white/70 text-sm mb-2 font-light tracking-widest">SCROLL</span>
+          <motion.div 
+            animate={{ y: [0, 10, 0] }} 
+            transition={{ repeat: Infinity, duration: 1.5 }}
+            className="w-0.5 h-8 bg-gradient-to-b from-primary to-transparent"
+          ></motion.div>
         </motion.div>
       </div>
     </section>

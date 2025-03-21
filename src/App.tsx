@@ -15,13 +15,38 @@ function App() {
     <div className="App">
       <Header />
       <main>
+        {/* Hero Section */}
         <Hero />
-        <Contact />
-        <Testimonials />
-        <About />
-        <LiftApp />
-        <Services />
-        <GluteGuide />
+        
+        {/* About Section */}
+        <section id="about" className="section section-light">
+          <About />
+        </section>
+        
+        {/* Services Section */}
+        <section id="services" className="section section-dark">
+          <Services />
+        </section>
+        
+        {/* Programs Section */}
+        <section id="lift-app" className="section section-light">
+          <LiftApp />
+        </section>
+        
+        {/* Guide Section */}
+        <section id="glute-guide" className="section section-dark">
+          <GluteGuide />
+        </section>
+        
+        {/* Testimonials Section */}
+        <section id="testimonials" className="section section-light">
+          <Testimonials />
+        </section>
+        
+        {/* Contact Section */}
+        <section id="contact" className="section section-dark">
+          <Contact />
+        </section>
       </main>
       <Footer />
     </div>
