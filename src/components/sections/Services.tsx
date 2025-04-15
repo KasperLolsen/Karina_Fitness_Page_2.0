@@ -81,7 +81,7 @@ const Services: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-5 tracking-tight">Services</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-5 tracking-tight text-primary">Services</h2>
             <p className="text-gray-600 max-w-3xl mx-auto text-lg font-light">
               Tailored fitness solutions to meet your needs
             </p>
