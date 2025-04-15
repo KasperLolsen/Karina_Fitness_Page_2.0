@@ -4,14 +4,7 @@ import CardQuestionnaire from './CardQuestionnaire';
 
 const Contact: React.FC = () => {
   return (
-    <section id="contact" className="py-24 relative overflow-hidden">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white opacity-90 z-0"></div>
-      
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-primary opacity-5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary opacity-5 rounded-full translate-x-1/3 translate-y-1/3"></div>
-      
+    <section id="contact" className="relative overflow-hidden pt-24 pb-24">
       <div className="container relative z-10 mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

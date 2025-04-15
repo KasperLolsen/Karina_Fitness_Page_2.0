@@ -1,12 +1,12 @@
 import emailjs from "emailjs-com";
 
 // EmailJS credentials
-const EMAILJS_USER_ID = ""; // Your Public Key
-const EMAILJS_SERVICE_ID = ""; // Your Service ID
-const EMAILJS_TEMPLATE_ID = ""; // Replace with your actual template ID from dashboard
+const EMAILJS_USER_ID = "NEyc8AZZj0ISeXhNK"; // Your Public Key
+const EMAILJS_SERVICE_ID = "service_ml9ocjo"; // Your Service ID
+const EMAILJS_TEMPLATE_ID = "template_np3cowc"; // Replace with your actual template ID from dashboard
 
 // Store recipient email in one place for easy updates later
-export const RECIPIENT_EMAIL = "kasper.l.olsen2002@gmail.com";
+export const RECIPIENT_EMAIL = "karinalifts@gmail.com";
 
 // Initialize EmailJS - call this directly, not in useEffect
 emailjs.init(EMAILJS_USER_ID);

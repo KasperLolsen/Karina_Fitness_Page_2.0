@@ -9,11 +9,11 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden">
+    <section className="relative overflow-hidden pb-24">
       {/* Background with elegant overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/images/IMG_3281.jpeg" 
+          src={`${process.env.PUBLIC_URL}/images/IMG_3281.jpeg`}
           alt="The Protein Princess" 
           className="w-full h-full object-cover"
         />
@@ -21,7 +21,13 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-primary/30 to-black/50"></div>
         
         {/* Decorative elements */}
-        <div className="absolute inset-0 bg-[url('/images/IMG_3674.png')] bg-no-repeat bg-[length:500px] bg-[center_top_5rem] opacity-5"></div>
+        <div className="absolute inset-0" style={{ 
+          backgroundImage: `url(${process.env.PUBLIC_URL}/images/IMG_3674.png)`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: '500px',
+          backgroundPosition: 'center top 5rem',
+          opacity: 0.05
+        }}></div>
         
         <div className="absolute bottom-0 w-full h-40 bg-gradient-to-t from-black/70 to-transparent"></div>
       </div>
@@ -29,50 +35,36 @@ const Hero: React.FC = () => {
       {/* Content wrapper */}
       <div className="container relative z-10 mx-auto px-6 py-20 flex flex-col h-screen">
         <div className="flex-1 flex flex-col justify-center items-center text-center">
-          {/* Animated badge */}
+          {/* Title */}
           <motion.div 
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={isLoaded ? { scale: 1, opacity: 1 } : {}}
+            initial={{ y: 30, opacity: 0 }}
+            animate={isLoaded ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative mb-6"
           >
-            <img 
-              src="/images/IMG_3674.png" 
-              alt="The Protein Princess Logo" 
-              className="h-32 w-auto mx-auto mb-2"
-            />
-          </motion.div>
-
-          {/* Main heading with luxury styling */}
-          <motion.div
-            initial={{ y: 30, opacity: 0 }}
-            animate={isLoaded ? { y: 0, opacity: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mb-4 relative"
-          >
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-extrabold text-white tracking-tighter leading-none">
-              <span className="inline-block relative">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-extrabold text-white tracking-tighter leading-tight">
+              <span className="block relative">
                 <span className="relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-white">
-                  TRANSFORM
+                  Power, Protein
                 </span>
-                <span className="absolute -bottom-2 left-0 right-0 h-0.5 bg-primary"></span>
+              </span>
+              <span className="block relative">
+                <span className="relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-white">
+                  and Princess Energy
+                </span>
               </span>
             </h1>
-            <h2 className="text-4xl md:text-5xl font-light text-white tracking-wider mt-2">
-              <span className="text-primary">YOUR</span> BODY <span className="text-primary">&</span> MIND
-            </h2>
           </motion.div>
 
-          {/* Elegant description */}
-          <motion.p 
+          {/* Slogan */}
+          <motion.h2
             initial={{ opacity: 0 }}
             animate={isLoaded ? { opacity: 1 } : {}}
-            transition={{ duration: 1, delay: 1.2 }}
-            className="max-w-xl mx-auto text-lg text-white/90 font-light leading-relaxed mb-8"
+            transition={{ duration: 1, delay: 0.8 }}
+            className="text-2xl md:text-3xl font-light text-white/90 tracking-wide mb-8"
           >
-            Exclusive fitness coaching designed to elevate your strength, 
-            balance and transform your life through personalized training and nutrition.
-          </motion.p>
+            Ready to become the Protein Princess you were born to be?
+          </motion.h2>
 
           {/* CTA Button Group */}
           <motion.div 
@@ -107,11 +99,6 @@ const Hero: React.FC = () => {
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
         >
           <span className="text-white/70 text-sm mb-2 font-light tracking-widest">SCROLL</span>
-          <motion.div 
-            animate={{ y: [0, 10, 0] }} 
-            transition={{ repeat: Infinity, duration: 1.5 }}
-            className="w-0.5 h-8 bg-gradient-to-b from-primary to-transparent"
-          ></motion.div>
         </motion.div>
       </div>
     </section>

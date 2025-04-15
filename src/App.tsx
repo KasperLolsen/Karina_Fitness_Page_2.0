@@ -5,10 +5,7 @@ import Footer from "./components/layout/Footer";
 import Hero from "./components/sections/Hero";
 import About from "./components/sections/About";
 import Services from "./components/sections/Services";
-import Testimonials from "./components/sections/Testimonials";
 import Contact from "./components/sections/Contact";
-import LiftApp from "./components/sections/LiftApp";
-import GluteGuide from "./components/sections/GluteGuide";
 
 function App() {
   return (
@@ -18,33 +15,39 @@ function App() {
         {/* Hero Section */}
         <Hero />
         
+        {/* Simple Pink Divider */}
+        <div className="py-16 bg-gradient-to-r from-white via-primary/40 to-white">
+          <div className="container mx-auto flex justify-center">
+            <div className="w-32 h-3 bg-primary rounded-full shadow-md"></div>
+          </div>
+        </div>
+        
         {/* About Section */}
-        <section id="about" className="section section-light">
+        <section id="about" className="section">
           <About />
         </section>
         
+        {/* Simple Pink Divider */}
+        <div className="py-16 bg-gradient-to-r from-white via-primary/40 to-white">
+          <div className="container mx-auto flex justify-center">
+            <div className="w-32 h-3 bg-primary rounded-full shadow-md"></div>
+          </div>
+        </div>
+        
         {/* Services Section */}
-        <section id="services" className="section section-dark">
+        <section id="services" className="section">
           <Services />
         </section>
         
-        {/* Programs Section */}
-        <section id="lift-app" className="section section-light">
-          <LiftApp />
-        </section>
-        
-        {/* Guide Section */}
-        <section id="glute-guide" className="section section-dark">
-          <GluteGuide />
-        </section>
-        
-        {/* Testimonials Section */}
-        <section id="testimonials" className="section section-light">
-          <Testimonials />
-        </section>
+        {/* Simple Pink Divider */}
+        <div className="py-16 bg-gradient-to-r from-white via-primary/40 to-white">
+          <div className="container mx-auto flex justify-center">
+            <div className="w-32 h-3 bg-primary rounded-full shadow-md"></div>
+          </div>
+        </div>
         
         {/* Contact Section */}
-        <section id="contact" className="section section-dark">
+        <section id="contact" className="section">
           <Contact />
         </section>
       </main>

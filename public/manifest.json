@@ -1,19 +1,19 @@
 {
-  "short_name": "Strand Coaching",
-  "name": "Pernille Strand Coaching",
+  "short_name": "Protein Princess",
+  "name": "The Protein Princess",
   "icons": [
     {
-      "src": "logo192.png",
+      "src": "images/IMG_3674.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/png"
     },
     {
-      "src": "logo192.png",
+      "src": "images/IMG_3674.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "images/IMG_3674.png",
       "type": "image/png",
       "sizes": "512x512"
     }

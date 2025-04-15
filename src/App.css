@@ -66,7 +66,7 @@ main {
 
 /* Elegant section styling */
 .section {
-  padding: 6rem 0;
+  padding: 0;
   position: relative;
 }
 
@@ -78,6 +78,11 @@ main {
 .section-dark {
   background-color: #1a1a1a;
   color: #fff;
+}
+
+.section-primary {
+  background-color: #ffedf3;
+  color: #333;
 }
 
 /* Elegant animated underline */
