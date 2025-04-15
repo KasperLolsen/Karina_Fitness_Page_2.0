@@ -1,4 +1,4 @@
-# Pernille Fitness Landing Page
+# Karina Fitness Landing Page
 
 A modern, responsive landing page for a fitness coach built with React and Tailwind CSS.
 
@@ -29,12 +29,12 @@ A modern, responsive landing page for a fitness coach built with React and Tailw
 
 1. Clone the repository
    ```
-   git clone https://github.com/your-username/pernille-fitness-page.git
+   git clone https://github.com/your-username/karina-fitness-page.git
    ```
 
 2. Navigate to the project directory
    ```
-   cd pernille-fitness-page
+   cd karina-fitness-page
    ```
 
 3. Install dependencies
