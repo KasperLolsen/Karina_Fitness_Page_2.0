@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Logo from '../ui/Logo';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
   
   const navItems = [
     { href: "#home", label: "Hjem" },
@@ -27,12 +28,51 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    // Prevent body scroll when mobile menu is open
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    // Handle click outside to close menu
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node) && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isMenuOpen]);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleNavItemClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+    
+    // Special case for home - scroll to top
+    if (targetId === 'home') {
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 300);
+      return;
+    }
+    
+    setTimeout(() => {
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 300);
+  };
+
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+    <header className={`fixed top-0 left-0 right-0 z-[50] transition-all duration-500 ${
       isScrolled 
         ? 'bg-white/95 backdrop-blur-sm py-3 shadow-lg shadow-black/5' 
         : 'bg-transparent py-6'
@@ -93,11 +133,18 @@ const Header: React.FC = () => {
           {/* Mobile menu button */}
           <button 
             className={`
-              md:hidden p-2 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary/40
-              ${isScrolled ? 'text-gray-800 hover:bg-gray-100' : 'text-white hover:bg-white/10'}
+              md:hidden p-2 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary/40 z-[70]
+              ${
+                isMenuOpen 
+                  ? 'text-white hover:bg-white/10' // Always white/light when menu is open
+                  : isScrolled 
+                    ? 'text-gray-800 hover:bg-gray-100' // Gray when scrolled & menu closed
+                    : 'text-white hover:bg-white/10' // White when at top & menu closed
+              }
             `}
             onClick={toggleMenu}
             aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
           >
             <svg 
               className="w-6 h-6"
@@ -119,11 +166,12 @@ const Header: React.FC = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            ref={menuRef}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: '100vh' }}
+            exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden fixed inset-0 bg-black/95 z-40 flex flex-col justify-center items-center"
+            className="md:hidden fixed inset-0 bg-black/95 z-[60] flex flex-col justify-center items-center overflow-hidden"
           >
             <div className="w-full max-w-sm mx-auto px-4 py-8">
               <div className="flex flex-col space-y-6 items-center text-center">
@@ -131,26 +179,11 @@ const Header: React.FC = () => {
                   <motion.a 
                     key={index}
                     href={item.href} 
-                    className="font-light text-white text-2xl tracking-wider hover:text-primary transition-all duration-300"
+                    className="font-light text-white text-2xl tracking-wider hover:text-primary transition-all duration-300 active:scale-95 touch-manipulation"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
-                    onClick={(e) => {
-                      // Close the menu
-                      setIsMenuOpen(false);
-                      
-                      // Get the target element
-                      const targetId = item.href.replace('#', '');
-                      const targetElement = document.getElementById(targetId);
-                      
-                      // If the target exists, smoothly scroll to it
-                      if (targetElement) {
-                        e.preventDefault();
-                        setTimeout(() => {
-                          targetElement.scrollIntoView({ behavior: 'smooth' });
-                        }, 300); // Small delay to allow menu to close
-                      }
-                    }}
+                    onClick={(e) => handleNavItemClick(e, item.href.replace('#', ''))}
                   >
                     {item.label}
                   </motion.a>
@@ -161,22 +194,8 @@ const Header: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: navItems.length * 0.1 }}
                   href="#contact"
-                  className="mt-8 inline-flex items-center justify-center px-8 py-3 font-light text-primary border border-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300"
-                  onClick={(e) => {
-                    // Close the menu
-                    setIsMenuOpen(false);
-                    
-                    // Get the contact section element
-                    const contactSection = document.getElementById('contact');
-                    
-                    // If it exists, smoothly scroll to it
-                    if (contactSection) {
-                      e.preventDefault();
-                      setTimeout(() => {
-                        contactSection.scrollIntoView({ behavior: 'smooth' });
-                      }, 300); // Small delay to allow menu to close
-                    }
-                  }}
+                  className="mt-8 inline-flex items-center justify-center px-8 py-3 font-light text-primary border border-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300 active:scale-95 touch-manipulation"
+                  onClick={(e) => handleNavItemClick(e, 'contact')}
                 >
                   <span>Bestill Konsultasjon</span>
                   <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
