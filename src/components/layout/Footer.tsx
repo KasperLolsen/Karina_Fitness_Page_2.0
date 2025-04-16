@@ -8,9 +8,9 @@ const Footer: React.FC = () => {
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Padden Fitness</h3>
+            <h3 className="text-xl font-bold mb-4">The Protein Princess</h3>
             <p className="mb-4 text-gray-700">
-              Forvandler liv gjennom personlig treningsveiledning og ernæringsplaner.
+              Skaper selvtillit og styrke gjennom personlig trening og kostveiledning – med hjelp av prinsesseenergi. 👑
             </p>
             <div className="flex space-x-4">
               {/* Instagram */}
@@ -55,14 +55,14 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">Kontaktinformasjon</h3>
             <address className="not-italic text-gray-700">
-              <p className="mb-2">E-post: <a href="mailto:karina.padden@gmail.com" className="hover:text-primary">karina.padden@gmail.com</a></p>
+              <p className="mb-2">E-post: <a href="mailto:karinalifts@gmail.com" className="hover:text-primary">karinalifts@gmail.com</a></p>
               <p>Oslo, Norge</p>
             </address>
           </div>
         </div>
         
         <div className="mt-12 pt-8 border-t border-gray-200 text-center text-gray-600">
-          <p>&copy; {currentYear} Padden Fitness - Din vei til mestring og treningsglede. Alle rettigheter reservert.</p>
+          <p>&copy; {currentYear} The Protein Princess - Din vei til prinsesse status. Alle rettigheter reservert.</p>
         </div>
       </div>
     </footer>

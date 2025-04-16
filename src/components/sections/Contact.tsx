@@ -14,10 +14,10 @@ const Contact: React.FC = () => {
           className="max-w-3xl mx-auto"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-            <span className="text-primary">Ta steget</span> mot dine treningsmål
+            👑 Bli en bedre versjon av deg selv👑
           </h2>
           <p className="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-            Fortell meg litt om deg selv og dine mål så vi vet hvor vi skal starte når jeg tar kontakt!
+            Jeg vil vite hvordan JEG kan hjelpe DEG best mulig. Fortell meg litt om deg selv og dine mål!
           </p>
           
           <div className="relative">

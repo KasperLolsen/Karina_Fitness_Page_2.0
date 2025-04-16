@@ -7,10 +7,10 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   const navItems = [
-    { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
-    { href: "#services", label: "Services" },
-    { href: "#contact", label: "Contact" }
+    { href: "#home", label: "Hjem" },
+    { href: "#about", label: "Om" },
+    { href: "#services", label: "Tjenester" },
+    { href: "#contact", label: "Kontakt" }
   ];
 
   // Handle scroll event to change header style
@@ -84,7 +84,7 @@ const Header: React.FC = () => {
               rounded-full transition-all duration-300 hover:shadow-lg
             `}
           >
-            <span>Book Consultation</span>
+            <span>Bestill Konsultasjon</span>
             <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
@@ -178,7 +178,7 @@ const Header: React.FC = () => {
                     }
                   }}
                 >
-                  <span>Book Consultation</span>
+                  <span>Bestill Konsultasjon</span>
                   <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>

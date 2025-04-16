@@ -16,7 +16,7 @@ const About: React.FC = () => {
               Om <span className="text-pink-500">Meg</span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-lg italic">
-              Din royale guide til styrke, balanse og prinsesse-energi
+              Jeg vil veilede deg til å bli Prinsessen du er ment til å være
             </p>
           </motion.div>
         </div>
@@ -31,37 +31,38 @@ const About: React.FC = () => {
             className="lg:w-3/5"
           >
             <div className="relative">
-              <div className="absolute top-0 left-0 w-10 h-10 -translate-x-6 -translate-y-6">
-                <svg viewBox="0 0 24 24" fill="none" className="w-full h-full text-pink-300 opacity-70">
-                  <path d="M4.5 2v2.5H2v2h2.5V9h2V6.5H9v-2H6.5V2h-2zm15.5 0v2.5H17v2h2.5V9h2V6.5H24v-2h-2.5V2h-2zM4.5 15v2.5H2v2h2.5V22h2v-2.5H9v-2H6.5V15h-2zm15.5 0v2.5H17v2h2.5V22h2v-2.5H24v-2h-2.5V15h-2z" fill="currentColor" />
-                </svg>
-              </div>
-              
               <h3 className="text-3xl font-bold font-serif text-purple-900 mb-1">Karina Padden</h3>
               <h4 className="text-xl text-pink-500 font-medium mb-6 italic">The Protein Princess</h4>
               
               <div className="space-y-5 text-gray-700 leading-relaxed mb-8 relative">
                 <p>
-                  Velkommen til mitt kongelige rike av styrke og selvutvikling. Som din Protein Princess er min lidenskap å hjelpe kvinner til å oppdage sin egen indre styrke – både fysisk og mentalt.
+                  Jeg heter Karina og er 22 år. I oppveksten var jeg aktiv med svømming, men jeg hatet alltid å trene på treningssenter eller i gymtimene på skolen. Hvis jeg ble bedt om å løpe eller bare bevege meg, gjorde jeg alt jeg kunne for å unngå det.
                 </p>
                 
                 <p>
-                  Min reise begynte i 2021 da jeg forelsket meg i styrketrening og oppdaget gleden ved å bygge både muskler og selvtillit. Det var en transformasjon som forandret ikke bare kroppen min, men hele min tilnærming til livet.
+                  Da jeg slet psykisk, ble jeg rådet av psykologen min til å komme meg i aktivitet. Jeg husker at jeg tenkte: «For noe forbanna tull, hvordan skal en gåtur hjelpe på depresjon?» I hate to break it to you – men det reddet meg faktisk.
                 </p>
                 
                 <p>
-                  Med min bakgrunn som sertifisert personlig trener og kostholdsveileder forstår jeg at hver kvinne er unik. Jeg tror på å skape et treningsrike der du føler deg som den prinsessen du er – sterk, målbevisst og strålende.
+                  Min treningsreise på eget initiativ begynte i 2021, da jeg forelsket meg i styrketrening og oppdaget gleden ved å bygge både muskler og selvtillit. Det var en transformasjon som ikke bare endret kroppen min, men hele tilnærmingen min til livet.
                 </p>
                 
-                <p className="italic border-l-4 border-pink-300 pl-5 py-1">
-                  Sammen skal vi bygge din prinsesse-kraft gjennom skreddersydde treningsprogrammer, næringsfull mat og et støttende fellesskap. Er du klar for å ta på deg din treningskrone og bli den sterkeste versjonen av deg selv?
+                <p>
+                  Jeg er veldig opptatt av at trening ikke bare forandrer kroppen – men også hodet. Treningen har vært det som har gjort meg til den jeg er i dag, og det har hjulpet meg å utvikle meg på alle områder i livet. Det er derfor jeg vil hjelpe andre med å oppnå det samme.
                 </p>
                 
-                <div className="absolute -bottom-4 right-0 w-16 h-16 translate-x-6 translate-y-6">
-                  <svg viewBox="0 0 24 24" fill="none" className="w-full h-full text-pink-300 opacity-70">
-                    <path d="M4.5 2v2.5H2v2h2.5V9h2V6.5H9v-2H6.5V2h-2zm15.5 0v2.5H17v2h2.5V9h2V6.5H24v-2h-2.5V2h-2zM4.5 15v2.5H2v2h2.5V22h2v-2.5H9v-2H6.5V15h-2zm15.5 0v2.5H17v2h2.5V22h2v-2.5H24v-2h-2.5V15h-2z" fill="currentColor" />
-                  </svg>
-                </div>
+                <p>
+                  Reisen jeg har hatt har skapt en lidenskap for å hjelpe andre kvinner med å bygge selvtillit og finne treningsglede. Enten du ønsker å gå opp eller ned i vekt, bli sterkere, eller bare føle deg bedre i hverdagen – jeg vil hjelpe deg!
+                </p>
+                
+                <p>
+                  Med min bakgrunn som sertifisert personlig trener og kostholdsveileder forstår jeg at hver kvinne er unik. Jeg vil at du skal føle deg som den prinsessen du er! Sammen skal vi bygge deg opp slik at du også kan føle deg som en ekte Prinsesse.
+                </p>
+
+                <p>
+                  Er du klar for å ta på deg treningskronen din og bli den sterkeste versjonen av deg selv?
+                  Fyll ut skjemaet under, så tar vi en prat om målene dine. Jeg gleder meg til å bli kjent med deg – vi snakkes! 
+                </p>
               </div>
               
               {/* Credentials */}
@@ -116,10 +117,12 @@ const About: React.FC = () => {
           >
             <div className="relative">
               {/* Crown decoration */}
-              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-12 h-12 text-pink-400">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 1L9 9H2l5.5 4L5 20l7-5 7 5-2.5-7L22 9h-7z"/>
-                </svg>
+              <div className="absolute -top-24 left-1/2 transform -translate-x-1/2 w-32 h-auto z-10">
+                <img 
+                  src="/images/—Pngtree—elegant pink crown with circle_7599447.png" 
+                  alt="Crown" 
+                  className="w-full h-auto object-contain"
+                />
               </div>
               
               {/* Decorative frame */}
@@ -142,13 +145,6 @@ const About: React.FC = () => {
                   {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-pink-500/20 to-transparent opacity-70"></div>
                 </div>
-              </div>
-              
-              {/* Decorative elements */}
-              <div className="absolute -bottom-4 -left-4 w-8 h-8 text-pink-300">
-                <svg viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z" />
-                </svg>
               </div>
             </div>
           </motion.div>

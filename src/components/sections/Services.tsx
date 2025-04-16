@@ -55,7 +55,8 @@ const ImageServiceCard: React.FC<ImageServiceCardProps> = ({ title, description,
       <img 
         src={`${process.env.PUBLIC_URL}/${imageSrc}`} 
         alt={title}
-        className="w-full h-full object-cover object-center absolute inset-0"
+        className="w-full h-full object-cover object-center absolute inset-0 -top-4"
+        style={{ objectPosition: 'center 20%' }}
       />
       <div className="relative z-20 p-8 h-full flex flex-col justify-end">
         {icon && (
@@ -81,17 +82,17 @@ const Services: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-5 tracking-tight text-primary">Services</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-5 tracking-tight text-primary">Tjenester</h2>
             <p className="text-gray-600 max-w-3xl mx-auto text-lg font-light">
-              Tailored fitness solutions to meet your needs
+              Tilpassede tjenester jeg tilbyr til fremtidige prinsesser
             </p>
           </motion.div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
           <ImageServiceCard
-            title="Online Coaching"
-            description="Remote training and support for clients who prefer to work out on their own schedule."
+            title="Online coaching"
+            description="For prinsesser som ønsker støtte, veiledning og hjelp til å lage bærekraftige treningsplaner tilrettelagt for spesifikke mål."
             imageSrc="images/IMG_6915.jpeg"
             icon={
               <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
@@ -102,8 +103,8 @@ const Services: React.FC = () => {
           />
           
           <ImageServiceCard
-            title="Nutrition Planning"
-            description="Custom meal plans and nutritional guidance to support your fitness journey."
+            title="Kostholdsplanlegging"
+            description="For prinsesser som ønsker støtte, veiledning og hjelp til å lage bærekraftige matplaner tilrettelagt for spesifikke mål."
             imageSrc="images/IMG_6912.jpeg"
             icon={
               <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
@@ -114,8 +115,8 @@ const Services: React.FC = () => {
           />
           
           <ImageServiceCard
-            title="Buy Program"
-            description="Pre-made workout programs at an affordable price with less commitment than coaching options."
+            title="Kjøp Program"
+            description="Ferdig laget treningsprogram som et billigere alternativ til coaching. Engangsbetaling, ingen binding eller abonnement."
             imageSrc="images/IMG_6911.jpeg"
             icon={
               <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
@@ -134,7 +135,7 @@ const Services: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.7 }}
           >
-            <a href="#contact" className="btn btn-primary text-lg px-8 py-4 hover:shadow-lg hover:translate-y-[-2px] transition-all duration-300">Begin Your Journey</a>
+            <a href="#contact" className="btn btn-primary text-lg px-8 py-4 hover:shadow-lg hover:translate-y-[-2px] transition-all duration-300">Bli en Protein Prinsesse!</a>
           </motion.div>
         </div>
       </div>

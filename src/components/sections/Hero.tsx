@@ -77,7 +77,7 @@ const Hero: React.FC = () => {
               href="#contact" 
               className="btn px-8 py-4 bg-primary text-white rounded-full font-medium tracking-wide hover:bg-primary-dark transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/30 flex items-center justify-center"
             >
-              Begin Your Journey
+              Start Din Reise
               <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
               </svg>
@@ -86,7 +86,7 @@ const Hero: React.FC = () => {
               href="#services" 
               className="btn px-8 py-4 bg-transparent text-white border border-white/30 rounded-full font-medium tracking-wide hover:bg-white/10 transform hover:scale-105 transition-all duration-300 flex items-center justify-center"
             >
-              Explore Services
+              Utforsk Tjenester
             </a>
           </motion.div>
         </div>

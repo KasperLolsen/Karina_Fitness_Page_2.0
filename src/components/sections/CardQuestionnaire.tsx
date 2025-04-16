@@ -101,10 +101,10 @@ const CardQuestionnaire: React.FC = () => {
   };
 
   const goalOptions = [
-    { id: "bli-sterkere", label: "Bli sterkere og bygge muskler", icon: "💪" },
+    { id: "protein-princess", label: "Bli en muscle mommy protein princess", icon: "🩷" },
     { id: "vektendring", label: "Vektendring", icon: "⚖️" },
-    { id: "livsstilsendring", label: "Livsstilsendring", icon: "🌱" },
-    { id: "annet", label: "Annet", icon: "✨" },
+    { id: "livsstilsendring", label: "Endre livsstil og få en bedre hverdag", icon: "🧘‍♀️" },
+    { id: "annet", label: "Annet", icon: "🔮" },
   ];
 
   // If we're showing success message
@@ -269,19 +269,19 @@ const CardQuestionnaire: React.FC = () => {
           >
             ←
           </button>
-          <h3 className="text-xl font-bold text-gray-800">Fortell meg litt mer</h3>
+          <h3 className="text-xl font-bold text-gray-800">Girl, tell me EVERYTHING✨</h3>
         </div>
         
         <div className="mt-3">
           <p className="text-gray-600 mb-4">
-            Utdyp med et par setninger hva du ønsker å oppnå gjennom coachingen.
+            Forklar med et par setninger hva du ønsker å oppnå gjennom coachingen.
           </p>
           <textarea
             name="moreDetails"
             value={answers.moreDetails}
             onChange={handleChange}
             className="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 h-32 resize-none transition duration-200"
-            placeholder="F.eks. øke styrke, forbedre kondisjon, bygge gode treningsvaner, forbedre livskvalitet, etc."
+            placeholder="F.eks øke styrke, større muskler, gå ned i vekt, gå opp i vekt bygge gode vaner, bedre livskvalitet osv."
           />
           
           {/* Navigation buttons */}
