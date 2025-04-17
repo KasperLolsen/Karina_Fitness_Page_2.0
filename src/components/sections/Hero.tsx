@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative mb-6"
           >
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-extrabold text-white tracking-tighter leading-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tighter leading-tight">
               <span className="block relative">
                 <span className="relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-white">
                   Power, Protein
@@ -63,7 +63,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 1, delay: 0.8 }}
             className="text-2xl md:text-3xl font-light text-white/90 tracking-wide mb-8"
           >
-            Ready to become the Protein Princess you were born to be?
+            Klar til å bli den Prinsessen du var ment til å være?
           </motion.h2>
 
           {/* CTA Button Group */}

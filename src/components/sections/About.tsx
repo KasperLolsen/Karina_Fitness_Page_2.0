@@ -52,10 +52,6 @@ const About: React.FC = () => {
                 </p>
                 
                 <p>
-                  Reisen jeg har hatt har skapt en lidenskap for å hjelpe andre kvinner med å bygge selvtillit og finne treningsglede. Enten du ønsker å gå opp eller ned i vekt, bli sterkere, eller bare føle deg bedre i hverdagen – jeg vil hjelpe deg!
-                </p>
-                
-                <p>
                   Med min bakgrunn som sertifisert personlig trener og kostholdsveileder forstår jeg at hver kvinne er unik. Jeg vil at du skal føle deg som den prinsessen du er! Sammen skal vi bygge deg opp slik at du også kan føle deg som en ekte Prinsesse.
                 </p>
 
