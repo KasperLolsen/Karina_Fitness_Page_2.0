@@ -36,10 +36,10 @@ const Testimonials: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-5 tracking-tight">Feedback fra <span className="text-primary">klienter</span></h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-5 tracking-tight">Feedback from <span className="text-primary">clients</span></h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
             <p className="text-gray-600 max-w-3xl mx-auto text-lg font-light">
-              Her kan du lese hvordan tidligere klienter opplevde coachingen og hva de sitter igjen med etter å ha hatt meg som coach.
+              Here you can read how previous clients experienced the coaching and what they took away from having me as their coach.
             </p>
           </motion.div>
         </div>

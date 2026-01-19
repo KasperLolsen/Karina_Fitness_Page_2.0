@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">The Protein Princess</h3>
             <p className="mb-4 text-gray-700">
-              Skaper selvtillit og styrke gjennom personlig trening og kostveiledning – med hjelp av prinsesseenergi. 👑
+              Building confidence and strength through personal training and nutrition coaching – with princess energy.
             </p>
             <div className="flex space-x-4">
               {/* Instagram */}
@@ -44,25 +44,25 @@ const Footer: React.FC = () => {
           </div>
           
           <div>
-            <h3 className="text-xl font-bold mb-4">Hurtiglenker</h3>
+            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="#about" className="text-gray-700 hover:text-primary">Om meg</a></li>
-              <li><a href="#services" className="text-gray-700 hover:text-primary">Tjenester</a></li>
-              <li><a href="#contact" className="text-gray-700 hover:text-primary">Kontakt</a></li>
+              <li><a href="#about" className="text-gray-700 hover:text-primary">About Me</a></li>
+              <li><a href="#services" className="text-gray-700 hover:text-primary">Services</a></li>
+              <li><a href="#contact" className="text-gray-700 hover:text-primary">Contact</a></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-xl font-bold mb-4">Kontaktinformasjon</h3>
+            <h3 className="text-xl font-bold mb-4">Contact Information</h3>
             <address className="not-italic text-gray-700">
-              <p className="mb-2">E-post: <a href="mailto:karinalifts@gmail.com" className="hover:text-primary">karinalifts@gmail.com</a></p>
-              <p>Oslo, Norge</p>
+              <p className="mb-2">Email: <a href="mailto:karinalifts@gmail.com" className="hover:text-primary">karinalifts@gmail.com</a></p>
+              <p>Oslo, Norway</p>
             </address>
           </div>
         </div>
         
         <div className="mt-12 pt-8 border-t border-gray-200 text-center text-gray-600">
-          <p>&copy; {currentYear} The Protein Princess - Din vei til prinsesse status. Alle rettigheter reservert.</p>
+          <p>&copy; {currentYear} The Protein Princess - Your path to princess status. All rights reserved.</p>
         </div>
       </div>
     </footer>

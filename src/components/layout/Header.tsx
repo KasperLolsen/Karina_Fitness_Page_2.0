@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from '../ui/Logo';
 
 const Header: React.FC = () => {
@@ -7,11 +8,14 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
   const navItems = [
-    { href: "#home", label: "Hjem" },
-    { href: "#about", label: "Om" },
-    { href: "#services", label: "Tjenester" },
-    { href: "#contact", label: "Kontakt" }
+    { href: "#home", label: "Home", isRoute: false },
+    { href: "/about", label: "About", isRoute: true },
+    { href: "#services", label: "Services", isRoute: false },
+    { href: "#contact", label: "Contact", isRoute: false }
   ];
 
   // Handle scroll event to change header style
@@ -94,17 +98,31 @@ const Header: React.FC = () => {
           className="hidden md:flex space-x-8 items-center"
         >
           {navItems.map((item, index) => (
-            <a 
-              key={index} 
-              href={item.href} 
-              className={`
-                font-light text-sm tracking-wider uppercase hover:text-primary transition-all duration-300 
-                relative group ${isScrolled ? 'text-gray-800' : 'text-white/90 hover:text-white'}
-              `}
-            >
-              {item.label}
-              <span className="absolute left-0 bottom-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full opacity-70"></span>
-            </a>
+            item.isRoute ? (
+              <Link
+                key={index}
+                to={item.href}
+                className={`
+                  font-light text-sm tracking-wider uppercase hover:text-primary transition-all duration-300
+                  relative group ${isScrolled ? 'text-gray-800' : 'text-white/90 hover:text-white'}
+                `}
+              >
+                {item.label}
+                <span className="absolute left-0 bottom-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full opacity-70"></span>
+              </Link>
+            ) : (
+              <a
+                key={index}
+                href={isHomePage ? item.href : `/${item.href}`}
+                className={`
+                  font-light text-sm tracking-wider uppercase hover:text-primary transition-all duration-300
+                  relative group ${isScrolled ? 'text-gray-800' : 'text-white/90 hover:text-white'}
+                `}
+              >
+                {item.label}
+                <span className="absolute left-0 bottom-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full opacity-70"></span>
+              </a>
+            )
           ))}
         </motion.nav>
         
@@ -124,7 +142,7 @@ const Header: React.FC = () => {
               rounded-full transition-all duration-300 hover:shadow-lg
             `}
           >
-            <span>Bestill Konsultasjon</span>
+            <span>Book Consultation</span>
             <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
@@ -176,17 +194,34 @@ const Header: React.FC = () => {
             <div className="w-full max-w-sm mx-auto px-4 py-8">
               <div className="flex flex-col space-y-6 items-center text-center">
                 {navItems.map((item, index) => (
-                  <motion.a 
-                    key={index}
-                    href={item.href} 
-                    className="font-light text-white text-2xl tracking-wider hover:text-primary transition-all duration-300 active:scale-95 touch-manipulation"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    onClick={(e) => handleNavItemClick(e, item.href.replace('#', ''))}
-                  >
-                    {item.label}
-                  </motion.a>
+                  item.isRoute ? (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                    >
+                      <Link
+                        to={item.href}
+                        className="font-light text-white text-2xl tracking-wider hover:text-primary transition-all duration-300 active:scale-95 touch-manipulation"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                    </motion.div>
+                  ) : (
+                    <motion.a
+                      key={index}
+                      href={item.href}
+                      className="font-light text-white text-2xl tracking-wider hover:text-primary transition-all duration-300 active:scale-95 touch-manipulation"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                      onClick={(e) => handleNavItemClick(e, item.href.replace('#', ''))}
+                    >
+                      {item.label}
+                    </motion.a>
+                  )
                 ))}
                 
                 <motion.a 
@@ -197,7 +232,7 @@ const Header: React.FC = () => {
                   className="mt-8 inline-flex items-center justify-center px-8 py-3 font-light text-primary border border-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300 active:scale-95 touch-manipulation"
                   onClick={(e) => handleNavItemClick(e, 'contact')}
                 >
-                  <span>Bestill Konsultasjon</span>
+                  <span>Book Consultation</span>
                   <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>

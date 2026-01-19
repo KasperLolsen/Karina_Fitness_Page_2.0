@@ -83,9 +83,9 @@ const Services: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-5 tracking-tight text-primary">Tjenester</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-5 tracking-tight text-primary">Services</h2>
             <p className="text-gray-600 max-w-3xl mx-auto text-lg font-light">
-              Tilpassede tjenester jeg tilbyr til fremtidige prinsesser
+              Customized services I offer to future princesses
             </p>
           </motion.div>
         </div>
@@ -93,7 +93,7 @@ const Services: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
           <ImageServiceCard
             title="Online coaching"
-            description="For prinsesser som ønsker støtte, veiledning og hjelp til å lage bærekraftige treningsplaner tilrettelagt for spesifikke mål."
+            description="For princesses who want support, guidance and help creating sustainable training plans tailored to specific goals."
             imageSrc="images/IMG_3279.jpeg"
             imageObjectPosition="center 40%"
             icon={
@@ -105,8 +105,8 @@ const Services: React.FC = () => {
           />
           
           <ImageServiceCard
-            title="Kostholdsplanlegging"
-            description="For prinsesser som ønsker støtte, veiledning og hjelp til å lage bærekraftige matplaner tilrettelagt for spesifikke mål."
+            title="Nutrition Planning"
+            description="For princesses who want support, guidance and help creating sustainable meal plans tailored to specific goals."
             imageSrc="images/IMG_6252.jpeg"
             icon={
               <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
@@ -117,8 +117,8 @@ const Services: React.FC = () => {
           />
           
           <ImageServiceCard
-            title="Kjøp Program"
-            description="Ferdig laget treningsprogram som et billigere alternativ til coaching. Engangsbetaling, ingen binding eller abonnement."
+            title="Buy Program"
+            description="Pre-made training program as a more affordable alternative to coaching. One-time payment, no commitment or subscription."
             imageSrc="images/C0349T01.jpeg"
             icon={
               <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
@@ -137,7 +137,7 @@ const Services: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.7 }}
           >
-            <a href="#contact" className="btn btn-primary text-lg px-8 py-4 hover:shadow-lg hover:translate-y-[-2px] transition-all duration-300">Bli en Protein Prinsesse!</a>
+            <a href="#contact" className="btn btn-primary text-lg px-8 py-4 hover:shadow-lg hover:translate-y-[-2px] transition-all duration-300">Become a Protein Princess!</a>
           </motion.div>
         </div>
       </div>

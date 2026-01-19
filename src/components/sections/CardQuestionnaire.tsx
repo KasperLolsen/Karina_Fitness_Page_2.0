@@ -90,21 +90,21 @@ const CardQuestionnaire: React.FC = () => {
           });
         }, 3000);
       } else {
-        setSubmitError("Kunne ikke sende meldingen. Vennligst prøv igjen senere.");
+        setSubmitError("Could not send the message. Please try again later.");
       }
     } catch (error) {
       console.error("Error sending email:", error);
-      setSubmitError("En uventet feil oppstod. Vennligst prøv igjen.");
+      setSubmitError("An unexpected error occurred. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   const goalOptions = [
-    { id: "protein-princess", label: "Bli en muscle mommy protein princess", icon: "🩷" },
-    { id: "vektendring", label: "Vektendring", icon: "⚖️" },
-    { id: "livsstilsendring", label: "Endre livsstil og få en bedre hverdag", icon: "🧘‍♀️" },
-    { id: "annet", label: "Annet", icon: "🔮" },
+    { id: "protein-princess", label: "Become a muscle mommy protein princess", icon: "🩷" },
+    { id: "weight-change", label: "Weight change", icon: "⚖️" },
+    { id: "lifestyle-change", label: "Change lifestyle and have a better everyday life", icon: "🧘‍♀️" },
+    { id: "other", label: "Other", icon: "🔮" },
   ];
 
   // If we're showing success message
@@ -121,9 +121,9 @@ const CardQuestionnaire: React.FC = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h3 className="text-2xl font-bold text-gray-800 mb-3">Takk for din henvendelse!</h3>
+          <h3 className="text-2xl font-bold text-gray-800 mb-3">Thank you for your inquiry!</h3>
           <p className="text-gray-600">
-            Jeg ser frem til å hjelpe deg med å nå dine mål. Du vil høre fra meg innen 1-2 virkedager for å diskutere hvordan vi kan skape resultater sammen.
+            I look forward to helping you reach your goals. You will hear from me within 1-2 business days to discuss how we can create results together.
           </p>
         </div>
       </motion.div>
@@ -134,7 +134,7 @@ const CardQuestionnaire: React.FC = () => {
   if (currentStep === 0) {
     return (
       <div className="w-full">
-        <h3 className="text-xl font-bold text-gray-800 mb-5">Hva ønsker du å oppnå?</h3>
+        <h3 className="text-xl font-bold text-gray-800 mb-5">What do you want to achieve?</h3>
         <div className="space-y-3">
           {/* Goal selection buttons */}
           {goalOptions.map((option) => (
@@ -163,8 +163,8 @@ const CardQuestionnaire: React.FC = () => {
             </motion.button>
           ))}
           
-          {/* Special field for "Annet" option */}
-          {selectedGoal === "Annet" && (
+          {/* Special field for "Other" option */}
+          {selectedGoal === "Other" && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
@@ -176,7 +176,7 @@ const CardQuestionnaire: React.FC = () => {
                 value={answers.annetDetails}
                 onChange={handleChange}
                 className="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 h-24 resize-none transition duration-200"
-                placeholder="Fortell oss om dine spesifikke mål..."
+                placeholder="Tell us about your specific goals..."
               />
             </motion.div>
           )}
@@ -194,7 +194,7 @@ const CardQuestionnaire: React.FC = () => {
               whileHover={selectedGoal ? { y: -2 } : {}}
               whileTap={selectedGoal ? { y: 0 } : {}}
             >
-              Neste steg
+              Next step
             </motion.button>
           </div>
         </div>
@@ -219,7 +219,7 @@ const CardQuestionnaire: React.FC = () => {
           >
             ←
           </button>
-          <h3 className="text-xl font-bold text-gray-800">Når er du født?</h3>
+          <h3 className="text-xl font-bold text-gray-800">When were you born?</h3>
         </div>
         
         <div className="mt-3">
@@ -244,7 +244,7 @@ const CardQuestionnaire: React.FC = () => {
               whileHover={birthdate ? { y: -2 } : {}}
               whileTap={birthdate ? { y: 0 } : {}}
             >
-              Neste steg
+              Next step
             </motion.button>
           </div>
         </div>
@@ -274,14 +274,14 @@ const CardQuestionnaire: React.FC = () => {
         
         <div className="mt-3">
           <p className="text-gray-600 mb-4">
-            Forklar med et par setninger hva du ønsker å oppnå gjennom coachingen.
+            Explain in a few sentences what you want to achieve through coaching.
           </p>
           <textarea
             name="moreDetails"
             value={answers.moreDetails}
             onChange={handleChange}
             className="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 h-32 resize-none transition duration-200"
-            placeholder="F.eks øke styrke, større muskler, gå ned i vekt, gå opp i vekt bygge gode vaner, bedre livskvalitet osv."
+            placeholder="E.g. increase strength, build bigger muscles, lose weight, gain weight, build good habits, better quality of life, etc."
           />
           
           {/* Navigation buttons */}
@@ -292,7 +292,7 @@ const CardQuestionnaire: React.FC = () => {
               whileHover={{ y: -2 }}
               whileTap={{ y: 0 }}
             >
-              Neste steg
+              Next step
             </motion.button>
           </div>
         </div>
@@ -317,13 +317,13 @@ const CardQuestionnaire: React.FC = () => {
           >
             ←
           </button>
-          <h3 className="text-xl font-bold text-gray-800">Dine kontaktopplysninger</h3>
+          <h3 className="text-xl font-bold text-gray-800">Your contact information</h3>
         </div>
         
         <div className="space-y-4 mt-3">
           <div>
             <label htmlFor="name" className="block text-gray-600 mb-1 font-medium">
-              Navn
+              Name
             </label>
             <input
               type="text"
@@ -332,14 +332,14 @@ const CardQuestionnaire: React.FC = () => {
               value={answers.name}
               onChange={handleChange}
               className="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition duration-200"
-              placeholder="Ditt fulle navn"
+              placeholder="Your full name"
               required
             />
           </div>
           
           <div>
             <label htmlFor="email" className="block text-gray-600 mb-1 font-medium">
-              E-post
+              Email
             </label>
             <input
               type="email"
@@ -348,14 +348,14 @@ const CardQuestionnaire: React.FC = () => {
               value={answers.email}
               onChange={handleChange}
               className="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition duration-200"
-              placeholder="din@email.no"
+              placeholder="your@email.com"
               required
             />
           </div>
           
           <div>
             <label htmlFor="phone" className="block text-gray-600 mb-1 font-medium">
-              Telefon
+              Phone
             </label>
             <input
               type="tel"
@@ -388,10 +388,10 @@ const CardQuestionnaire: React.FC = () => {
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
-                  Sender...
+                  Sending...
                 </span>
               ) : (
-                "Send inn"
+                "Submit"
               )}
             </motion.button>
             
@@ -402,7 +402,7 @@ const CardQuestionnaire: React.FC = () => {
             )}
             
             <p className="mt-4 text-xs text-gray-500 text-center">
-              Ved å sende inn dette skjemaet godtar du at jeg tar kontakt med deg angående treningstjenester. Jeg respekterer ditt privatliv og dine data vil aldri deles med tredjepart.
+              By submitting this form, you agree that I may contact you regarding fitness services. I respect your privacy and your data will never be shared with third parties.
             </p>
           </div>
         </div>

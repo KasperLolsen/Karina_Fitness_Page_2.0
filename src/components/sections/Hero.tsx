@@ -20,15 +20,6 @@ const Hero: React.FC = () => {
         {/* Elegant gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-primary/30 to-black/50"></div>
         
-        {/* Decorative elements */}
-        <div className="absolute inset-0" style={{ 
-          backgroundImage: `url(${process.env.PUBLIC_URL}/images/IMG_3674.png)`,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: '500px',
-          backgroundPosition: 'center top 5rem',
-          opacity: 0.05
-        }}></div>
-        
         <div className="absolute bottom-0 w-full h-40 bg-gradient-to-t from-black/70 to-transparent"></div>
       </div>
 
@@ -63,7 +54,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 1, delay: 0.8 }}
             className="text-2xl md:text-3xl font-light text-white/90 tracking-wide mb-8"
           >
-            Klar til å bli den Prinsessen du var ment til å være?
+            Ready to become the Princess you were meant to be?
           </motion.h2>
 
           {/* CTA Button Group */}
@@ -77,7 +68,7 @@ const Hero: React.FC = () => {
               href="#contact" 
               className="btn px-8 py-4 bg-primary text-white rounded-full font-medium tracking-wide hover:bg-primary-dark transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/30 flex items-center justify-center"
             >
-              Start Din Reise
+              Start Your Journey
               <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
               </svg>
@@ -86,7 +77,7 @@ const Hero: React.FC = () => {
               href="#services" 
               className="btn px-8 py-4 bg-transparent text-white border border-white/30 rounded-full font-medium tracking-wide hover:bg-white/10 transform hover:scale-105 transition-all duration-300 flex items-center justify-center"
             >
-              Utforsk Tjenester
+              Explore Services
             </a>
           </motion.div>
         </div>
