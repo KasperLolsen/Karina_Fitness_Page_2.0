@@ -8,6 +8,7 @@ interface ServiceCardProps {
   delay?: number;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, delay = 0 }) => {
   return (
     <motion.div
