@@ -7,6 +7,7 @@ import Hero from "./components/sections/Hero";
 import Services from "./components/sections/Services";
 import Contact from "./components/sections/Contact";
 import AboutPage from "./pages/AboutPage";
+import FreeResourcesPage from "./pages/FreeResourcesPage";
 
 function HomePage() {
   return (
@@ -22,7 +23,7 @@ function HomePage() {
         </section>
 
         {/* Services Section */}
-        <section id="services" className="section">
+        <section id="services" className="pt-0 md:pt-8">
           <Services />
         </section>
       </main>
@@ -37,6 +38,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/free-resources" element={<FreeResourcesPage />} />
       </Routes>
     </Router>
   );

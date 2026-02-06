@@ -14,8 +14,7 @@ const Header: React.FC = () => {
   const navItems = [
     { href: "#home", label: "Home", isRoute: false },
     { href: "/about", label: "About", isRoute: true },
-    { href: "#services", label: "Services", isRoute: false },
-    { href: "#contact", label: "Contact", isRoute: false }
+    { href: "/free-resources", label: "Free Resources", isRoute: true }
   ];
 
   // Handle scroll event to change header style
@@ -75,14 +74,7 @@ const Header: React.FC = () => {
         : 'bg-transparent py-6'
     }`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="relative z-[120]"
-        >
-          <Logo />
-        </motion.div>
+        <div className="relative z-[120]" />
 
         <motion.nav
           initial={{ opacity: 0, y: -10 }}
@@ -175,7 +167,7 @@ const Header: React.FC = () => {
             className="md:hidden fixed inset-0 bg-black/95 z-[110] flex flex-col justify-center items-center"
           >
             <nav className="flex flex-col space-y-8 items-center text-center">
-              {navItems.map((item, index) => (
+              {navItems.filter(item => item.href !== '#contact').map((item, index) => (
                 <motion.button
                   key={index}
                   initial={{ opacity: 0, y: 10 }}
@@ -188,18 +180,6 @@ const Header: React.FC = () => {
                 </motion.button>
               ))}
 
-              <motion.button
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: navItems.length * 0.1 }}
-                className="mt-4 inline-flex items-center justify-center px-8 py-3 font-light text-primary border border-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300 touch-manipulation"
-                onClick={() => handleMobileNavClick({ href: "#contact", label: "Contact", isRoute: false })}
-              >
-                <span>Book Consultation</span>
-                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </motion.button>
             </nav>
           </motion.div>
         )}

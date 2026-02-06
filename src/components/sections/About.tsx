@@ -33,29 +33,33 @@ const About: React.FC = () => {
           </motion.div>
         </div>
         
-        <div className="flex flex-col lg:flex-row gap-16 items-start">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center lg:items-start">
           {/* Left side image */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:w-1/2 -ml-8 lg:-ml-16 relative"
+            className="w-3/5 mx-auto lg:mx-0 lg:w-2/5 lg:-ml-60 relative shrink-0 lg:mt-16"
           >
             {/* Pink aura glow behind figure */}
             <div
-              className="absolute inset-0 z-0"
+              className="absolute inset-0 z-0 hidden lg:block"
               style={{
                 background: 'radial-gradient(ellipse at center, rgba(236,72,153,0.3) 0%, rgba(244,114,182,0.15) 30%, rgba(249,168,212,0.05) 55%, transparent 70%)',
                 filter: 'blur(40px)',
                 transform: 'scale(1.1)',
               }}
             />
-            <img
-              src="/images/karina-about.png"
-              alt="Karina Padden"
-              className="w-full h-auto object-cover scale-110 origin-bottom relative z-10"
-            />
+            <div className="relative">
+              <img
+                src="/images/karina-about.png"
+                alt="Karina Padden"
+                className="w-full h-auto object-cover lg:scale-100 origin-bottom relative z-10"
+              />
+              {/* Fade bottom of figure */}
+              <div className="absolute bottom-0 left-0 right-0 h-1/3 z-20 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent, #0a0a0a)' }} />
+            </div>
           </motion.div>
 
           {/* Right side content */}
@@ -64,13 +68,13 @@ const About: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:w-1/2"
+            className="w-full lg:w-1/2 px-2"
           >
             <div className="relative">
-              <h3 className="text-3xl font-bold font-serif text-primary mb-1">Karina Padden</h3>
-              <h4 className="text-xl text-primary font-medium mb-6 italic">The Protein Princess</h4>
+              <h3 className="text-2xl md:text-3xl font-bold font-serif text-primary mb-1 text-center lg:text-left">Karina Padden</h3>
+              <h4 className="text-lg md:text-xl text-primary font-medium mb-6 italic text-center lg:text-left">The Protein Princess</h4>
 
-              <div className="space-y-5 leading-relaxed mb-20 relative" style={{ color: '#ffe7fd' }}>
+              <div className="space-y-4 md:space-y-5 leading-relaxed mb-8 relative text-sm md:text-base" style={{ color: '#ffe7fd' }}>
                 <p>
                   My name is Karina and I'm 23 years old. Growing up, I was active with swimming, but I always hated working out at the gym or in PE classes at school. If I was asked to run or just move around, I did everything I could to avoid it. When I was struggling mentally, my psychologist advised me to get active. I remember thinking: "What a load of nonsense, how is a walk going to help with depression?" I hate to break it to you, but it actually ended up saving me.
                 </p>
@@ -128,7 +132,7 @@ const About: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="inline-block">
+                <div className="inline-block text-center lg:text-left w-full lg:w-auto">
                   <a href="/#contact" className="relative inline-flex items-center gap-2 px-8 py-3 rounded-full border border-pink-500/40 text-pink-300 font-medium overflow-hidden group hover:border-pink-400/60 hover:translate-y-[-2px] transition-all duration-300 backdrop-blur-sm bg-white/5 hover:bg-white/10">
                     <span className="relative z-10">Get In Touch</span>
                     <svg className="w-5 h-5 transition-transform group-hover:translate-x-1 duration-300 relative z-10" viewBox="0 0 20 20" fill="currentColor">
