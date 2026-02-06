@@ -14,20 +14,22 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 z-0">
         {/* Desktop video */}
         <video
-          src={`${process.env.PUBLIC_URL}/hero-video.mov`}
+          src={`${process.env.PUBLIC_URL}/hero-video.mp4`}
           autoPlay
           loop
           muted
           playsInline
+          preload="auto"
           className="hidden md:block w-full h-full object-cover blur-[4px]"
         />
         {/* Mobile video */}
         <video
-          src={`${process.env.PUBLIC_URL}/images/hero-mobile.mov`}
+          src={`${process.env.PUBLIC_URL}/images/hero-mobile.mp4`}
           autoPlay
           loop
           muted
           playsInline
+          preload="auto"
           className="md:hidden w-full h-full object-cover blur-[2px]"
         />
       </div>
