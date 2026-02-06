@@ -75,7 +75,7 @@ const ImageServiceCard: React.FC<ImageServiceCardProps> = ({ title, description,
 
 const Services: React.FC = () => {
   return (
-    <section id="services" className="relative overflow-hidden pt-24 pb-24">
+    <section id="services" className="relative overflow-hidden pt-8 pb-24 md:pt-24">
       <div className="container relative z-10">
         <div className="text-center mb-16">
           <motion.div
@@ -95,38 +95,22 @@ const Services: React.FC = () => {
           <ImageServiceCard
             title="Online coaching"
             description="For princesses who want support, guidance and help creating sustainable training plans tailored to specific goals."
-            imageSrc="images/IMG_3279.jpeg"
+            imageSrc="images/online-coaching.jpg"
             imageObjectPosition="center 40%"
-            icon={
-              <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clipRule="evenodd" />
-              </svg>
-            }
             delay={0.1}
           />
           
           <ImageServiceCard
             title="Nutrition Planning"
             description="For princesses who want support, guidance and help creating sustainable meal plans tailored to specific goals."
-            imageSrc="images/IMG_6252.jpeg"
-            icon={
-              <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M3 6c0-1.1.9-2 2-2h10a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2V6zm0 6c0-1.1.9-2 2-2h10a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2zm4 4a1 1 0 011-1h6a1 1 0 110 2H8a1 1 0 01-1-1z" />
-              </svg>
-            }
+            imageSrc="images/nutrition.jpg"
             delay={0.2}
           />
           
           <ImageServiceCard
             title="Buy Program"
             description="Pre-made training program as a more affordable alternative to coaching. One-time payment, no commitment or subscription."
-            imageSrc="images/C0349T01.jpeg"
-            icon={
-              <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1z" clipRule="evenodd" />
-                <path d="M12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z" />
-              </svg>
-            }
+            imageSrc="images/buy-program.jpg"
             delay={0.3}
           />
         </div>
