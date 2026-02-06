@@ -1,14 +1,22 @@
 /* Global styles */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
 
+@font-face {
+  font-family: 'Sequel';
+  src: url('./fonts/sequel100wide.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: #fff;
-  color: #333;
+  background-color: #000;
+  color: #fff;
   line-height: 1.6;
 }
 
@@ -71,8 +79,8 @@ main {
 }
 
 .section-light {
-  background-color: #fff;
-  color: #333;
+  background-color: #000;
+  color: #fff;
 }
 
 .section-dark {
@@ -81,8 +89,8 @@ main {
 }
 
 .section-primary {
-  background-color: #ffedf3;
-  color: #333;
+  background-color: #000;
+  color: #fff;
 }
 
 /* Elegant animated underline */

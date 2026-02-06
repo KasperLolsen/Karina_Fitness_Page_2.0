@@ -9,88 +9,90 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative overflow-hidden pb-24">
+    <section className="relative overflow-hidden">
       {/* Background with elegant overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={`${process.env.PUBLIC_URL}/images/IMG_3281.jpeg`}
-          alt="The Protein Princess" 
-          className="w-full h-full object-cover"
+        {/* Desktop video */}
+        <video
+          src={`${process.env.PUBLIC_URL}/hero-video.mov`}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="hidden md:block w-full h-full object-cover"
         />
-        {/* Elegant gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-primary/30 to-black/50"></div>
-        
-        <div className="absolute bottom-0 w-full h-40 bg-gradient-to-t from-black/70 to-transparent"></div>
+        {/* Mobile video */}
+        <video
+          src={`${process.env.PUBLIC_URL}/images/hero-mobile.mov`}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="md:hidden w-full h-full object-cover"
+        />
       </div>
 
       {/* Content wrapper */}
       <div className="container relative z-10 mx-auto px-6 py-20 flex flex-col h-screen">
-        <div className="flex-1 flex flex-col justify-center items-center text-center">
+        <div className="flex-1 flex flex-col justify-center items-center text-center -mt-16 md:-mt-20">
           {/* Title */}
-          <motion.div 
+          <motion.div
             initial={{ y: 30, opacity: 0 }}
             animate={isLoaded ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative mb-6"
+            className="relative mb-1 bg-black/40 px-8 py-4 rounded-xl backdrop-blur-sm shadow-[0_0_40px_30px_rgba(0,0,0,0.4)]"
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tighter leading-tight">
-              <span className="block relative">
-                <span className="relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-white">
-                  Power, Protein
-                </span>
-              </span>
-              <span className="block relative">
-                <span className="relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-white">
-                  and Princess Energy
-                </span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white tracking-wide leading-tight uppercase whitespace-nowrap" style={{ fontFamily: "'Sequel', sans-serif" }}>
+              <span className="relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-white">
+                Get fit, pay $0
               </span>
             </h1>
           </motion.div>
 
           {/* Slogan */}
-          <motion.h2
+          <motion.div
             initial={{ opacity: 0 }}
             animate={isLoaded ? { opacity: 1 } : {}}
             transition={{ duration: 1, delay: 0.8 }}
-            className="text-2xl md:text-3xl font-light text-white/90 tracking-wide mb-8"
+            className="text-center mb-5 max-w-2xl" style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
-            Ready to become the Princess you were meant to be?
-          </motion.h2>
+            <h2 className="text-base sm:text-xl md:text-2xl font-semibold text-white/90 tracking-wide">
+              If you reach your goal, you pay nothing.
+            </h2>
+            <p className="text-sm sm:text-lg md:text-xl font-medium text-white/70 tracking-wide mt-1">
+              Ready to take on the challenge?
+            </p>
+          </motion.div>
 
           {/* CTA Button Group */}
-          <motion.div 
+          <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={isLoaded ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 1.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center mt-6"
           >
-            <a 
-              href="#contact" 
-              className="btn px-8 py-4 bg-primary text-white rounded-full font-medium tracking-wide hover:bg-primary-dark transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/30 flex items-center justify-center"
+            <a
+              href="#contact"
+              className="btn px-12 py-5 text-lg rounded-full font-bold tracking-wide uppercase transform hover:scale-105 transition-all duration-300 shadow-[0_0_30px_10px_rgba(0,0,0,0.5)] hover:shadow-[0_0_40px_15px_rgba(0,0,0,0.7)] flex items-center justify-center"
+              style={{ backgroundColor: '#ffe7fd', color: '#1a0a2e', fontFamily: "'Sequel', sans-serif" }}
             >
-              Start Your Journey
+              Join Now
               <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
               </svg>
             </a>
-            <a 
-              href="#services" 
-              className="btn px-8 py-4 bg-transparent text-white border border-white/30 rounded-full font-medium tracking-wide hover:bg-white/10 transform hover:scale-105 transition-all duration-300 flex items-center justify-center"
-            >
-              Explore Services
-            </a>
           </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={isLoaded ? { opacity: 1 } : {}}
+            transition={{ duration: 0.8, delay: 2 }}
+            className="text-pink-300 text-xs sm:text-sm tracking-widest uppercase font-medium mt-4"
+          >
+            February offer &bull; 5 spots left
+          </motion.p>
         </div>
 
-        {/* Elegant scroll indicator */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={isLoaded ? { opacity: 0.7 } : {}}
-          transition={{ duration: 1, delay: 2 }}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
-        >
-          <span className="text-white/70 text-sm mb-2 font-light tracking-widest">SCROLL</span>
-        </motion.div>
       </div>
     </section>
   );

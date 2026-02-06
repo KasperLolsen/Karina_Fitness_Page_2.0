@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Logo from '../ui/Logo';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
-  
+
   const location = useLocation();
+  const navigate = useNavigate();
   const isHomePage = location.pathname === '/';
 
   const navItems = [
@@ -19,66 +19,59 @@ const Header: React.FC = () => {
   ];
 
   // Handle scroll event to change header style
-  const handleScroll = () => {
-    if (window.scrollY > 50) {
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
-    }
-  };
-
   useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
-    // Prevent body scroll when mobile menu is open
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
-
-    // Handle click outside to close menu
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node) && isMenuOpen) {
-        setIsMenuOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    return () => { document.body.style.overflow = ''; };
   }, [isMenuOpen]);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const handleNavItemClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
-    e.preventDefault();
+  const handleMobileNavClick = (item: typeof navItems[0]) => {
     setIsMenuOpen(false);
-    
-    // Special case for home - scroll to top
-    if (targetId === 'home') {
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, 300);
+
+    if (item.isRoute) {
+      navigate(item.href);
       return;
     }
-    
-    setTimeout(() => {
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 300);
+
+    const targetId = item.href.replace('#', '');
+
+    if (!isHomePage) {
+      // Navigate home first, then scroll after page loads
+      navigate('/');
+      setTimeout(() => {
+        if (targetId === 'home') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          const el = document.getElementById(targetId);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 500);
+      return;
+    }
+
+    if (targetId === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const el = document.getElementById(targetId);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-[50] transition-all duration-500 ${
-      isScrolled 
-        ? 'bg-white/95 backdrop-blur-sm py-3 shadow-lg shadow-black/5' 
+    <header className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
+      isScrolled
+        ? 'bg-black/95 backdrop-blur-sm py-3 shadow-lg shadow-black/5'
         : 'bg-transparent py-6'
     }`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
@@ -86,11 +79,11 @@ const Header: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="z-50"
+          className="relative z-[120]"
         >
           <Logo />
         </motion.div>
-        
+
         <motion.nav
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -104,7 +97,7 @@ const Header: React.FC = () => {
                 to={item.href}
                 className={`
                   font-light text-sm tracking-wider uppercase hover:text-primary transition-all duration-300
-                  relative group ${isScrolled ? 'text-gray-800' : 'text-white/90 hover:text-white'}
+                  relative group ${isScrolled ? 'text-white/90 hover:text-white' : 'text-white/90 hover:text-white'}
                 `}
               >
                 {item.label}
@@ -116,7 +109,7 @@ const Header: React.FC = () => {
                 href={isHomePage ? item.href : `/${item.href}`}
                 className={`
                   font-light text-sm tracking-wider uppercase hover:text-primary transition-all duration-300
-                  relative group ${isScrolled ? 'text-gray-800' : 'text-white/90 hover:text-white'}
+                  relative group ${isScrolled ? 'text-white/90 hover:text-white' : 'text-white/90 hover:text-white'}
                 `}
               >
                 {item.label}
@@ -125,18 +118,18 @@ const Header: React.FC = () => {
             )
           ))}
         </motion.nav>
-        
+
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <a 
-            href="#contact" 
+          <a
+            href="#contact"
             className={`
-              hidden md:flex items-center px-6 py-2.5 font-light text-sm tracking-wider uppercase 
-              ${isScrolled 
-                ? 'text-primary border border-primary hover:bg-primary hover:text-white' 
+              hidden md:flex items-center px-6 py-2.5 font-light text-sm tracking-wider uppercase
+              ${isScrolled
+                ? 'text-primary border border-primary hover:bg-primary hover:text-white'
                 : 'text-white border border-white/30 hover:border-white hover:bg-white/10'
               }
               rounded-full transition-all duration-300 hover:shadow-lg
@@ -147,27 +140,18 @@ const Header: React.FC = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </a>
-        
+
           {/* Mobile menu button */}
-          <button 
-            className={`
-              md:hidden p-2 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary/40 z-[70]
-              ${
-                isMenuOpen 
-                  ? 'text-white hover:bg-white/10' // Always white/light when menu is open
-                  : isScrolled 
-                    ? 'text-gray-800 hover:bg-gray-100' // Gray when scrolled & menu closed
-                    : 'text-white hover:bg-white/10' // White when at top & menu closed
-              }
-            `}
-            onClick={toggleMenu}
+          <button
+            className="md:hidden p-2 rounded-full transition-colors focus:outline-none relative z-[120] text-white hover:bg-white/10"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
           >
-            <svg 
+            <svg
               className="w-6 h-6"
-              fill="none" 
-              stroke="currentColor" 
+              fill="none"
+              stroke="currentColor"
               viewBox="0 0 24 24"
             >
               {isMenuOpen ? (
@@ -179,66 +163,44 @@ const Header: React.FC = () => {
           </button>
         </motion.div>
       </div>
-      
+
       {/* Mobile menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            ref={menuRef}
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: '100vh' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden fixed inset-0 bg-black/95 z-[60] flex flex-col justify-center items-center overflow-hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden fixed inset-0 bg-black/95 z-[110] flex flex-col justify-center items-center"
           >
-            <div className="w-full max-w-sm mx-auto px-4 py-8">
-              <div className="flex flex-col space-y-6 items-center text-center">
-                {navItems.map((item, index) => (
-                  item.isRoute ? (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
-                    >
-                      <Link
-                        to={item.href}
-                        className="font-light text-white text-2xl tracking-wider hover:text-primary transition-all duration-300 active:scale-95 touch-manipulation"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {item.label}
-                      </Link>
-                    </motion.div>
-                  ) : (
-                    <motion.a
-                      key={index}
-                      href={item.href}
-                      className="font-light text-white text-2xl tracking-wider hover:text-primary transition-all duration-300 active:scale-95 touch-manipulation"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
-                      onClick={(e) => handleNavItemClick(e, item.href.replace('#', ''))}
-                    >
-                      {item.label}
-                    </motion.a>
-                  )
-                ))}
-                
-                <motion.a 
+            <nav className="flex flex-col space-y-8 items-center text-center">
+              {navItems.map((item, index) => (
+                <motion.button
+                  key={index}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: navItems.length * 0.1 }}
-                  href="#contact"
-                  className="mt-8 inline-flex items-center justify-center px-8 py-3 font-light text-primary border border-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300 active:scale-95 touch-manipulation"
-                  onClick={(e) => handleNavItemClick(e, 'contact')}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  className="font-light text-white text-2xl tracking-wider hover:text-primary transition-all duration-300 touch-manipulation py-3 px-8"
+                  onClick={() => handleMobileNavClick(item)}
                 >
-                  <span>Book Consultation</span>
-                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </motion.a>
-              </div>
-            </div>
+                  {item.label}
+                </motion.button>
+              ))}
+
+              <motion.button
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: navItems.length * 0.1 }}
+                className="mt-4 inline-flex items-center justify-center px-8 py-3 font-light text-primary border border-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300 touch-manipulation"
+                onClick={() => handleMobileNavClick({ href: "#contact", label: "Contact", isRoute: false })}
+              >
+                <span>Book Consultation</span>
+                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </motion.button>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>
@@ -246,4 +208,4 @@ const Header: React.FC = () => {
   );
 };
 
-export default Header; 
+export default Header;

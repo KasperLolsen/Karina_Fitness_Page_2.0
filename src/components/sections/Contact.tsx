@@ -13,10 +13,10 @@ const Contact: React.FC = () => {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 tracking-wide uppercase" style={{ fontFamily: "'Sequel', sans-serif", color: '#ffe7fd' }}>
             Become a better version of yourself
           </h2>
-          <p className="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto uppercase" style={{ fontFamily: "'Montserrat', sans-serif" }}>
             I want to know how I can help YOU best. Tell me a little about yourself and your goals!
           </p>
           
@@ -24,7 +24,7 @@ const Contact: React.FC = () => {
             {/* Subtle shadow and border effect */}
             <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/30 to-primary/20 rounded-2xl blur-md"></div>
             
-            <div className="relative bg-white p-8 md:p-10 rounded-xl shadow-xl">
+            <div className="relative p-8 md:p-10 rounded-xl shadow-xl" style={{ backgroundColor: '#1a0a2e' }}>
               <CardQuestionnaire />
             </div>
           </div>

@@ -21,7 +21,7 @@ const Testimonials: React.FC = () => {
   }, []);
 
   return (
-    <section id="testimonials" className="section bg-white relative overflow-hidden py-24">
+    <section id="testimonials" className="section bg-black relative overflow-hidden py-24">
       {/* Background decorations */}
       <div className="absolute top-0 left-0 w-full h-full">
         <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-primary/5 blur-3xl"></div>
@@ -36,9 +36,9 @@ const Testimonials: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-5 tracking-tight">Feedback from <span className="text-primary">clients</span></h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-5 tracking-wide uppercase" style={{ fontFamily: "'Sequel', sans-serif", color: '#ffe7fd' }}>Feedback from clients</h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-            <p className="text-gray-600 max-w-3xl mx-auto text-lg font-light">
+            <p className="text-gray-600 max-w-3xl mx-auto text-lg font-light uppercase" style={{ fontFamily: "'Montserrat', sans-serif" }}>
               Here you can read how previous clients experienced the coaching and what they took away from having me as their coach.
             </p>
           </motion.div>

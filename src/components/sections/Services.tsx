@@ -16,7 +16,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, del
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay }}
-      className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 group border-b-4 border-primary/70 hover:border-primary"
+      className="bg-black p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 group border-b-4 border-primary/70 hover:border-primary"
       whileHover={{ 
         y: -5,
         transition: { duration: 0.2 }
@@ -84,8 +84,8 @@ const Services: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-5 tracking-tight text-primary">Services</h2>
-            <p className="text-gray-600 max-w-3xl mx-auto text-lg font-light">
+            <h2 className="text-3xl md:text-5xl font-bold mb-5 tracking-wide uppercase" style={{ fontFamily: "'Sequel', sans-serif", color: '#ffe7fd' }}>Services</h2>
+            <p className="text-gray-600 max-w-3xl mx-auto text-lg font-light uppercase" style={{ fontFamily: "'Montserrat', sans-serif" }}>
               Customized services I offer to future princesses
             </p>
           </motion.div>
@@ -131,16 +131,6 @@ const Services: React.FC = () => {
           />
         </div>
         
-        <div className="text-center mt-16 mb-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-          >
-            <a href="#contact" className="btn btn-primary text-lg px-8 py-4 hover:shadow-lg hover:translate-y-[-2px] transition-all duration-300">Become a Protein Princess!</a>
-          </motion.div>
-        </div>
       </div>
     </section>
   );

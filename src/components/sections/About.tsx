@@ -4,6 +4,18 @@ import { motion } from 'framer-motion';
 const About: React.FC = () => {
   return (
     <section id="about" className="relative overflow-hidden pt-24 pb-24">
+      {/* Decorative pink wave lines */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1440 900" preserveAspectRatio="none">
+        <path d="M-50,80 C200,-20 400,180 700,80 S1100,-20 1500,130" fill="none" stroke="#ec4899" strokeWidth="2.5" opacity="0.18" />
+        <path d="M-50,150 C200,50 400,250 700,150 S1100,50 1500,200" fill="none" stroke="#f472b6" strokeWidth="2" opacity="0.15" />
+        <path d="M-50,300 C150,200 350,400 650,280 S1050,180 1500,350" fill="none" stroke="#ec4899" strokeWidth="2" opacity="0.14" />
+        <path d="M-50,420 C200,340 420,520 720,400 S1080,300 1500,450" fill="none" stroke="#f9a8d4" strokeWidth="1.5" opacity="0.12" />
+        <path d="M-50,500 C250,400 450,600 750,480 S1150,380 1500,520" fill="none" stroke="#f472b6" strokeWidth="2" opacity="0.13" />
+        <path d="M-50,620 C180,540 400,720 700,600 S1100,500 1500,650" fill="none" stroke="#ec4899" strokeWidth="1.5" opacity="0.11" />
+        <path d="M-50,700 C300,600 500,800 800,680 S1200,560 1500,720" fill="none" stroke="#f9a8d4" strokeWidth="2.5" opacity="0.16" />
+        <path d="M-50,800 C250,720 470,880 770,770 S1150,670 1500,830" fill="none" stroke="#ec4899" strokeWidth="2" opacity="0.12" />
+      </svg>
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <motion.div
@@ -15,26 +27,50 @@ const About: React.FC = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-5 tracking-tight font-serif text-primary">
               About <span className="text-primary">Me</span>
             </h2>
-            <p className="text-gray-800 max-w-2xl mx-auto text-lg italic">
+            <p className="max-w-2xl mx-auto text-lg italic" style={{ color: '#ffe7fd' }}>
               I will guide you to become the Princess you are meant to be
             </p>
           </motion.div>
         </div>
         
         <div className="flex flex-col lg:flex-row gap-16 items-start">
-          {/* Left side content */}
+          {/* Left side image */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:w-3/5"
+            className="lg:w-1/2 -ml-8 lg:-ml-16 relative"
+          >
+            {/* Pink aura glow behind figure */}
+            <div
+              className="absolute inset-0 z-0"
+              style={{
+                background: 'radial-gradient(ellipse at center, rgba(236,72,153,0.3) 0%, rgba(244,114,182,0.15) 30%, rgba(249,168,212,0.05) 55%, transparent 70%)',
+                filter: 'blur(40px)',
+                transform: 'scale(1.1)',
+              }}
+            />
+            <img
+              src="/images/karina-about.png"
+              alt="Karina Padden"
+              className="w-full h-auto object-cover scale-110 origin-bottom relative z-10"
+            />
+          </motion.div>
+
+          {/* Right side content */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="lg:w-1/2"
           >
             <div className="relative">
               <h3 className="text-3xl font-bold font-serif text-primary mb-1">Karina Padden</h3>
               <h4 className="text-xl text-primary font-medium mb-6 italic">The Protein Princess</h4>
-              
-              <div className="space-y-5 text-gray-800 leading-relaxed mb-20 relative">
+
+              <div className="space-y-5 leading-relaxed mb-20 relative" style={{ color: '#ffe7fd' }}>
                 <p>
                   My name is Karina and I'm 23 years old. Growing up, I was active with swimming, but I always hated working out at the gym or in PE classes at school. If I was asked to run or just move around, I did everything I could to avoid it. When I was struggling mentally, my psychologist advised me to get active. I remember thinking: "What a load of nonsense, how is a walk going to help with depression?" I hate to break it to you, but it actually ended up saving me.
                 </p>
@@ -61,78 +97,44 @@ const About: React.FC = () => {
 
               </div>
               
-              <div className="mt-16">
+              <div className="mt-10">
                 {/* Credentials */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-                  <div className="bg-pink-50 border border-pink-100 rounded-lg p-4 text-center hover:shadow-md transition-all duration-300 group">
-                    <div className="w-12 h-12 rounded-full bg-white inline-flex items-center justify-center text-pink-500 mb-3 shadow-sm group-hover:scale-110 transition-transform duration-300">
+                  <div className="bg-white/5 border border-pink-500/20 rounded-xl p-5 text-center hover:bg-white/10 hover:border-pink-400/40 transition-all duration-300 group backdrop-blur-sm">
+                    <div className="w-12 h-12 rounded-full bg-pink-500/15 inline-flex items-center justify-center text-pink-400 mb-3 group-hover:scale-110 transition-transform duration-300">
                       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
                       </svg>
                     </div>
-                    <span className="block font-medium text-purple-900">Educated at Active Education</span>
+                    <span className="block font-medium" style={{ color: '#ffe7fd' }}>Educated at Active Education</span>
                   </div>
-                  
-                  <div className="bg-pink-50 border border-pink-100 rounded-lg p-4 text-center hover:shadow-md transition-all duration-300 group">
-                    <div className="w-12 h-12 rounded-full bg-white inline-flex items-center justify-center text-pink-500 mb-3 shadow-sm group-hover:scale-110 transition-transform duration-300">
+
+                  <div className="bg-white/5 border border-pink-500/20 rounded-xl p-5 text-center hover:bg-white/10 hover:border-pink-400/40 transition-all duration-300 group backdrop-blur-sm">
+                    <div className="w-12 h-12 rounded-full bg-pink-500/15 inline-flex items-center justify-center text-pink-400 mb-3 group-hover:scale-110 transition-transform duration-300">
                       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z" />
                       </svg>
                     </div>
-                    <span className="block font-medium text-purple-900">Certified Personal Trainer</span>
+                    <span className="block font-medium" style={{ color: '#ffe7fd' }}>Certified Personal Trainer</span>
                   </div>
-                  
-                  <div className="bg-pink-50 border border-pink-100 rounded-lg p-4 text-center hover:shadow-md transition-all duration-300 group">
-                    <div className="w-12 h-12 rounded-full bg-white inline-flex items-center justify-center text-pink-500 mb-3 shadow-sm group-hover:scale-110 transition-transform duration-300">
+
+                  <div className="bg-white/5 border border-pink-500/20 rounded-xl p-5 text-center hover:bg-white/10 hover:border-pink-400/40 transition-all duration-300 group backdrop-blur-sm">
+                    <div className="w-12 h-12 rounded-full bg-pink-500/15 inline-flex items-center justify-center text-pink-400 mb-3 group-hover:scale-110 transition-transform duration-300">
                       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
                       </svg>
                     </div>
-                    <span className="block font-medium text-purple-900">Certified Nutrition Coach</span>
+                    <span className="block font-medium" style={{ color: '#ffe7fd' }}>Certified Nutrition Coach</span>
                   </div>
                 </div>
-                
+
                 <div className="inline-block">
-                  <a href="/#contact" className="relative inline-flex items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-pink-400 to-pink-500 text-white font-medium overflow-hidden shadow-md group hover:shadow-lg hover:translate-y-[-2px] transition-all duration-300">
+                  <a href="/#contact" className="relative inline-flex items-center gap-2 px-8 py-3 rounded-full border border-pink-500/40 text-pink-300 font-medium overflow-hidden group hover:border-pink-400/60 hover:translate-y-[-2px] transition-all duration-300 backdrop-blur-sm bg-white/5 hover:bg-white/10">
                     <span className="relative z-10">Get In Touch</span>
-                    <svg className="w-5 h-5 transition-transform group-hover:translate-x-1 duration-300" viewBox="0 0 20 20" fill="currentColor">
+                    <svg className="w-5 h-5 transition-transform group-hover:translate-x-1 duration-300 relative z-10" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                     </svg>
-                    <span className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                   </a>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-          
-          {/* Right side image */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:w-2/5"
-          >
-            <div className="relative">
-              {/* Decorative frame */}
-              <div className="relative group">
-                {/* Decorative background */}
-                <div className="absolute -inset-2 bg-gradient-to-tr from-pink-200 via-pink-100 to-purple-200 rounded-xl blur opacity-40 group-hover:opacity-70 transition duration-1000 group-hover:duration-300"></div>
-                
-                {/* Main image */}
-                <div className="relative overflow-hidden rounded-xl border-8 border-white shadow-xl">
-                  <img 
-                    src="/images/IMG_3526.jpeg" 
-                    alt="Karina Padden" 
-                    className="w-full h-auto object-cover"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = "https://images.unsplash.com/photo-1595078475328-1ab05d0a6a0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80";
-                    }}
-                  />
-                  
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-pink-500/20 to-transparent opacity-70"></div>
                 </div>
               </div>
             </div>

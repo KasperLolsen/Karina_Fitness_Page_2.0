@@ -16,28 +16,14 @@ function HomePage() {
         {/* Hero Section */}
         <Hero />
 
-        {/* Simple Pink Divider */}
-        <div className="py-16 bg-gradient-to-r from-white via-primary/40 to-white">
-          <div className="container mx-auto flex justify-center">
-            <div className="w-32 h-3 bg-primary rounded-full shadow-md"></div>
-          </div>
-        </div>
+        {/* Contact Section */}
+        <section id="contact" className="section">
+          <Contact />
+        </section>
 
         {/* Services Section */}
         <section id="services" className="section">
           <Services />
-        </section>
-
-        {/* Simple Pink Divider */}
-        <div className="py-16 bg-gradient-to-r from-white via-primary/40 to-white">
-          <div className="container mx-auto flex justify-center">
-            <div className="w-32 h-3 bg-primary rounded-full shadow-md"></div>
-          </div>
-        </div>
-
-        {/* Contact Section */}
-        <section id="contact" className="section">
-          <Contact />
         </section>
       </main>
       <Footer />
