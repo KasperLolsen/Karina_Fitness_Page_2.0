@@ -68,6 +68,7 @@ const Header: React.FC = () => {
   };
 
   return (
+    <>
     <header className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
       isScrolled
         ? 'bg-black/95 backdrop-blur-sm py-3 shadow-lg shadow-black/5'
@@ -156,7 +157,9 @@ const Header: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Mobile menu */}
+    </header>
+
+      {/* Mobile menu - rendered outside header to avoid stacking context issues */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -164,8 +167,19 @@ const Header: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden fixed inset-0 bg-black/95 z-[110] flex flex-col justify-center items-center"
+            className="md:hidden fixed inset-0 bg-black z-[200] flex flex-col justify-center items-center"
           >
+            {/* Close button */}
+            <button
+              className="absolute top-6 right-6 p-2 rounded-full text-white hover:bg-white/10 z-[210]"
+              onClick={() => setIsMenuOpen(false)}
+              aria-label="Close menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
             <nav className="flex flex-col space-y-8 items-center text-center">
               {navItems.filter(item => item.href !== '#contact').map((item, index) => (
                 <motion.button
@@ -179,12 +193,11 @@ const Header: React.FC = () => {
                   {item.label}
                 </motion.button>
               ))}
-
             </nav>
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 };
 
