@@ -23,6 +23,7 @@ const CardQuestionnaire: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [dealAccepted, setDealAccepted] = useState(false);
 
   // Initialize EmailJS when component mounts
   useEffect(() => {
@@ -431,18 +432,45 @@ const CardQuestionnaire: React.FC = () => {
             />
           </div>
           
+          {/* Deal checkbox */}
+          <div className="pt-2">
+            <label className="flex items-center gap-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                checked={dealAccepted}
+                onChange={(e) => setDealAccepted(e.target.checked)}
+                className="w-5 h-5 rounded border-white/30 bg-white/10 text-[#9B5DE5] focus:ring-[#9B5DE5]/50 cursor-pointer accent-[#9B5DE5]"
+              />
+              <span className="text-white font-medium text-sm">{dealAccepted ? "Yes, we have a deal!" : "We have a deal?"}</span>
+              <a
+                href="#how-it-works"
+                className="text-white/40 text-xs hover:text-primary transition-colors ml-1"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById('how-it-works');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  const btn = el?.querySelector('button') as HTMLButtonElement;
+                  const content = el?.querySelector('.overflow-hidden');
+                  if (btn && !content) btn.click();
+                }}
+              >
+                What's the deal?
+              </a>
+            </label>
+          </div>
+
           {/* Submit button */}
           <div className="pt-4">
             <motion.button
               onClick={handleSubmit}
-              disabled={isSubmitting || !answers.name || !answers.email || !answers.phone}
+              disabled={isSubmitting || !answers.name || !answers.email || !answers.phone || !dealAccepted}
               className={`w-full p-3 md:p-4 rounded-xl text-white font-medium transition-all duration-300 ${
-                isSubmitting || !answers.name || !answers.email || !answers.phone
+                isSubmitting || !answers.name || !answers.email || !answers.phone || !dealAccepted
                   ? "bg-white/20 cursor-not-allowed"
                   : "bg-[#9B5DE5] hover:bg-[#8a4dd4] shadow-md hover:shadow-lg"
               }`}
-              whileHover={!isSubmitting && answers.name && answers.email && answers.phone ? { y: -2 } : {}}
-              whileTap={!isSubmitting && answers.name && answers.email && answers.phone ? { y: 0 } : {}}
+              whileHover={!isSubmitting && answers.name && answers.email && answers.phone && dealAccepted ? { y: -2 } : {}}
+              whileTap={!isSubmitting && answers.name && answers.email && answers.phone && dealAccepted ? { y: 0 } : {}}
             >
               {isSubmitting ? (
                 <span className="flex items-center justify-center">

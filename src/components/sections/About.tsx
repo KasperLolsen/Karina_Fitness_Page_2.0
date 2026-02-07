@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const About: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <section id="about" className="relative overflow-hidden pt-24 pb-24">
       {/* Decorative pink wave lines */}
@@ -76,7 +78,7 @@ const About: React.FC = () => {
 
               <div className="space-y-4 md:space-y-5 leading-relaxed mb-8 relative text-sm md:text-base" style={{ color: '#ffe7fd' }}>
                 <p>
-                  My name is Karina and I'm 23 years old. Growing up, I was active with swimming, but I always hated working out at the gym or in PE classes at school. If I was asked to run or just move around, I did everything I could to avoid it. When I was struggling mentally, my psychologist advised me to get active. I remember thinking: "What a load of nonsense, how is a walk going to help with depression?" I hate to break it to you, but it actually ended up saving me.
+                  Growing up, I was active with swimming, but I always hated working out at the gym or in PE classes at school. If I was asked to run or just move around, I did everything I could to avoid it. When I was struggling mentally, my psychologist advised me to get active. I remember thinking: "What a load of nonsense, how is a walk going to help with depression?" I hate to break it to you, but it actually ended up saving me.
                 </p>
 
                 <p>
@@ -104,14 +106,14 @@ const About: React.FC = () => {
               <div className="mt-10">
                 {/* Credentials */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-                  <div className="bg-white/5 border border-pink-500/20 rounded-xl p-5 text-center hover:bg-white/10 hover:border-pink-400/40 transition-all duration-300 group backdrop-blur-sm">
+                  <a href="https://activeeducation.global/" target="_blank" rel="noopener noreferrer" className="bg-white/5 border border-pink-500/20 rounded-xl p-5 text-center hover:bg-white/10 hover:border-pink-400/40 transition-all duration-300 group backdrop-blur-sm block">
                     <div className="w-12 h-12 rounded-full bg-pink-500/15 inline-flex items-center justify-center text-pink-400 mb-3 group-hover:scale-110 transition-transform duration-300">
                       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
                       </svg>
                     </div>
                     <span className="block font-medium" style={{ color: '#ffe7fd' }}>Educated at Active Education</span>
-                  </div>
+                  </a>
 
                   <div className="bg-white/5 border border-pink-500/20 rounded-xl p-5 text-center hover:bg-white/10 hover:border-pink-400/40 transition-all duration-300 group backdrop-blur-sm">
                     <div className="w-12 h-12 rounded-full bg-pink-500/15 inline-flex items-center justify-center text-pink-400 mb-3 group-hover:scale-110 transition-transform duration-300">
@@ -133,12 +135,12 @@ const About: React.FC = () => {
                 </div>
 
                 <div className="inline-block text-center lg:text-left w-full lg:w-auto">
-                  <a href="/#contact" className="relative inline-flex items-center gap-2 px-8 py-3 rounded-full border border-pink-500/40 text-pink-300 font-medium overflow-hidden group hover:border-pink-400/60 hover:translate-y-[-2px] transition-all duration-300 backdrop-blur-sm bg-white/5 hover:bg-white/10">
+                  <button onClick={() => { navigate('/'); setTimeout(() => { const el = document.getElementById('contact'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }, 500); }} className="relative inline-flex items-center gap-2 px-8 py-3 rounded-full border border-pink-500/40 text-pink-300 font-medium overflow-hidden group hover:border-pink-400/60 hover:translate-y-[-2px] transition-all duration-300 backdrop-blur-sm bg-white/5 hover:bg-white/10 cursor-pointer">
                     <span className="relative z-10">Get In Touch</span>
                     <svg className="w-5 h-5 transition-transform group-hover:translate-x-1 duration-300 relative z-10" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                     </svg>
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>

@@ -66,7 +66,7 @@ const ImageServiceCard: React.FC<ImageServiceCardProps> = ({ title, description,
             {icon}
           </div>
         )}
-        <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-primary transition-colors duration-300">{title}</h3>
+        <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-primary transition-colors duration-300 uppercase" style={{ fontFamily: "'Sequel', sans-serif" }}>{title}</h3>
         <p className="text-white/95 leading-relaxed">{description}</p>
       </div>
     </motion.div>
@@ -93,7 +93,7 @@ const Services: React.FC = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
           <ImageServiceCard
-            title="Online coaching"
+            title="1:1 COACHING"
             description="For princesses who want support, guidance and help creating sustainable training plans tailored to specific goals."
             imageSrc="images/online-coaching.jpg"
             imageObjectPosition="center 40%"
