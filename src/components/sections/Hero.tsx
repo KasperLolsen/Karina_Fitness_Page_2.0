@@ -44,11 +44,23 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative -mb-2 bg-black/40 px-8 py-4 rounded-xl backdrop-blur-sm shadow-[0_0_40px_30px_rgba(0,0,0,0.4)]"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white tracking-wide leading-tight uppercase whitespace-nowrap" style={{ fontFamily: "'Sequel', sans-serif" }}>
-              <span className="relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-white">
-                Get fit, pay $0
-              </span>
-            </h1>
+            <a
+              href="#how-it-works"
+              className="block cursor-pointer hover:scale-[1.03] active:scale-[1.05] hover:font-black active:font-black transition-all duration-300"
+              onClick={() => {
+                setTimeout(() => {
+                  const btn = document.querySelector('#how-it-works button') as HTMLButtonElement;
+                  const content = document.querySelector('#how-it-works .overflow-hidden');
+                  if (btn && !content) btn.click();
+                }, 600);
+              }}
+            >
+              <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white tracking-wide leading-tight uppercase whitespace-nowrap" style={{ fontFamily: "'Sequel', sans-serif" }}>
+                <span className="relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-white">
+                  Get fit, pay $0
+                </span>
+              </h1>
+            </a>
           </motion.div>
 
           {/* Slogan */}
