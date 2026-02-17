@@ -84,7 +84,7 @@ const Hero: React.FC = () => {
             }}
           >
             <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-            <span className="relative">Start Free Consultation</span>
+            <span className="relative">Free Consultation</span>
           </a>
         </motion.div>
 

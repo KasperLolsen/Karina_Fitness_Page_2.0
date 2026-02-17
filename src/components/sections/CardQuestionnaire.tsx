@@ -137,9 +137,9 @@ const CardQuestionnaire: React.FC = () => {
   );
 
   const goalOptions = [
-    { id: "gain-muscle", label: "Gain Muscle" },
-    { id: "lose-fat", label: "Lose Fat" },
-    { id: "lifestyle-change", label: "Change lifestyle and have a better everyday life" },
+    { id: "muscle-gain", label: "Muscle gain" },
+    { id: "fat-loss", label: "Fat loss" },
+    { id: "lifestyle-change", label: "Lifestyle change" },
     { id: "other", label: "Other" },
   ];
 
