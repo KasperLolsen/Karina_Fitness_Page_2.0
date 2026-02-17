@@ -29,7 +29,7 @@ function HomePage() {
         </section>
 
         {/* Testimonials Section */}
-        <TestimonialCarousel />
+        {/* <TestimonialCarousel /> */}
       </main>
       <Footer />
     </div>

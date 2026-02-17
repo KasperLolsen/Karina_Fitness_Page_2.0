@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const testimonials = [
-  { image: "/images/testimonial-1.png", alt: "Personal win - active lifestyle transformation" },
-  { image: "/images/testimonial-2.png", alt: "Personal win - bikini fitness championship" },
-  { image: "/images/testimonial-3.png", alt: "Client win - 3 months coaching results front" },
-  { image: "/images/testimonial-4.png", alt: "Client win - 3 months coaching results side" },
-  { image: "/images/testimonial-5.jpg", alt: "Client win - 3 months coaching before and after" },
+  { image: "/images/transformation-1.png", alt: "Client transformation - side view before and after" },
+  { image: "/images/transformation-2.png", alt: "Client transformation - bikini fitness competition" },
+  { image: "/images/transformation-3.png", alt: "Client transformation - front view before and after" },
+  { image: "/images/transformation-4.png", alt: "Client transformation - full body before and after" },
+  { image: "/images/transformation-5.png", alt: "Client transformation - side profile before and after" },
 ];
 
 const n = testimonials.length;
@@ -85,12 +85,14 @@ const TestimonialCarousel: React.FC = () => {
                     if (offset !== 0) paginate(offset > 0 ? 1 : -1);
                   }}
                 >
-                  <img
-                    src={item.image}
-                    alt={item.alt}
-                    className="w-full h-auto rounded-2xl select-none"
-                    draggable={false}
-                  />
+                  <div className="w-full rounded-2xl overflow-hidden" style={{ aspectRatio: '1/1' }}>
+                    <img
+                      src={item.image}
+                      alt={item.alt}
+                      className="w-full h-full object-cover select-none"
+                      draggable={false}
+                    />
+                  </div>
                 </motion.div>
               );
             })}

@@ -9,107 +9,135 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative overflow-hidden">
-      {/* Background with elegant overlay */}
-      <div className="absolute inset-0 z-0">
+    <section className="relative overflow-hidden min-h-screen flex flex-col">
+      {/* Background video - fixed to cover entire section */}
+      <div className="absolute inset-0 z-0 h-full w-full">
         {/* Desktop video */}
         <video
+          ref={(el) => { if (el) el.playbackRate = 0.9; }}
           src={`${process.env.PUBLIC_URL}/hero-video.mp4`}
           autoPlay
           loop
           muted
           playsInline
           preload="auto"
-          className="hidden md:block w-full h-full object-cover blur-[4px]"
+          className="hidden md:block absolute inset-0 w-full h-full object-cover blur-[4px]"
         />
         {/* Mobile video */}
         <video
+          ref={(el) => { if (el) el.playbackRate = 0.9; }}
           src={`${process.env.PUBLIC_URL}/images/hero-mobile.mp4`}
           autoPlay
           loop
           muted
           playsInline
           preload="auto"
-          className="md:hidden w-full h-full object-cover blur-[2px]"
+          className="md:hidden absolute inset-0 w-full h-full object-cover blur-[2px]"
         />
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-black/50" />
       </div>
 
-      {/* Content wrapper */}
-      <div className="container relative z-10 mx-auto px-6 py-20 flex flex-col h-screen">
-        <div className="flex-1 flex flex-col justify-center items-center text-center">
-          {/* Title */}
-          <motion.div
-            initial={{ y: 30, opacity: 0 }}
-            animate={isLoaded ? { y: 0, opacity: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative -mb-2 bg-black/40 px-8 py-4 rounded-xl backdrop-blur-sm shadow-[0_0_40px_30px_rgba(0,0,0,0.4)]"
-          >
-            <a
-              href="#how-it-works"
-              className="block cursor-pointer hover:scale-[1.03] active:scale-[1.05] hover:font-black active:font-black transition-all duration-300"
-              onClick={() => {
-                setTimeout(() => {
-                  const btn = document.querySelector('#how-it-works button') as HTMLButtonElement;
-                  const content = document.querySelector('#how-it-works .overflow-hidden');
-                  if (btn && !content) btn.click();
-                }, 600);
-              }}
-            >
-              <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white tracking-wide leading-tight uppercase whitespace-nowrap" style={{ fontFamily: "'Sequel', sans-serif" }}>
-                <span className="relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-white">
-                  Get fit, pay $0
-                </span>
-              </h1>
-            </a>
-          </motion.div>
+      {/* Content */}
+      <div className="container relative z-10 mx-auto px-6 pt-28 pb-16 md:pt-36 md:pb-20 flex-1 flex flex-col justify-center items-center text-center">
+        {/* Dream outcome headline */}
+        <motion.h1
+          initial={{ y: 20, opacity: 0 }}
+          animate={isLoaded ? { y: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-wide leading-tight uppercase"
+          style={{ fontFamily: "'Sequel', sans-serif", color: '#ffe7fd' }}
+        >
+          Lose fat without extreme dieting in<br />
+          <span className="relative inline-block">
+            <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400" style={{ textShadow: 'none' }}>90 days</span>
+            <span className="absolute inset-0 blur-lg bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 opacity-50 z-0" />
+          </span>
+        </motion.h1>
 
-          {/* Slogan */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={isLoaded ? { opacity: 1 } : {}}
-            transition={{ duration: 1, delay: 0.8 }}
-            className="text-center mb-5 max-w-2xl relative z-10" style={{ fontFamily: "'Montserrat', sans-serif" }}
-          >
-            <h2 className="text-base sm:text-xl md:text-3xl lg:text-4xl font-bold text-white tracking-wide whitespace-nowrap" style={{ textShadow: '0 4px 15px rgba(0,0,0,0.9), 0 8px 40px rgba(0,0,0,0.8)' }}>
-              If you reach your goal, you pay nothing.
-            </h2>
-            <p className="text-sm sm:text-lg md:text-2xl lg:text-3xl font-bold text-white/80 tracking-wide mt-1 whitespace-nowrap" style={{ textShadow: '0 4px 15px rgba(0,0,0,0.9), 0 8px 40px rgba(0,0,0,0.8)' }}>
-              Ready to take on the challenge?
-            </p>
-          </motion.div>
+        {/* Pain point copy */}
+        <motion.p
+          initial={{ y: 20, opacity: 0 }}
+          animate={isLoaded ? { y: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="mt-4 sm:mt-6 max-w-2xl text-sm sm:text-lg md:text-xl text-white/80 leading-relaxed px-2 sm:px-0"
+          style={{ fontFamily: "'Montserrat', sans-serif" }}
+        >
+          Tired of starting over every Monday?<br />
+          I help women lose fat and keep it off <span className="italic underline decoration-2 underline-offset-4" style={{ fontFamily: "'Georgia', serif" }}>without gaining it back</span>.
+        </motion.p>
 
-          {/* CTA Button Group */}
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={isLoaded ? { y: 0, opacity: 1 } : {}}
-            transition={{ duration: 0.8, delay: 1.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mt-6"
+        {/* CTA button */}
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={isLoaded ? { y: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.8, delay: 1.0 }}
+          className="mt-10"
+        >
+          <a
+            href="#contact"
+            className="group relative inline-flex items-center justify-center px-6 py-2.5 text-xs sm:text-base md:text-lg sm:px-12 sm:py-4 rounded-full font-bold tracking-wide uppercase transition-all duration-300 shadow-[0_0_25px_rgba(196,113,237,0.4)] hover:shadow-[0_0_40px_rgba(196,113,237,0.6)] hover:scale-105 overflow-hidden"
+            style={{
+              background: 'linear-gradient(135deg, #c471ed 0%, #f64f59 100%)',
+              color: '#fff',
+              fontFamily: "'Sequel', sans-serif",
+            }}
           >
-            <a
-              href="#contact"
-              className="btn px-8 py-3 text-base md:px-12 md:py-5 md:text-lg rounded-full font-bold tracking-wide uppercase transform hover:scale-105 transition-all duration-300 shadow-[0_0_30px_10px_rgba(0,0,0,0.5)] hover:shadow-[0_0_40px_15px_rgba(0,0,0,0.7)] flex items-center justify-center"
-              style={{ backgroundColor: '#ffe7fd', color: '#1a0a2e', fontFamily: "'Sequel', sans-serif" }}
-            >
-              Join Now
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-              </svg>
-            </a>
-          </motion.div>
+            <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+            <span className="relative">Start Free Consultation</span>
+          </a>
+        </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={isLoaded ? { opacity: 1 } : {}}
-            transition={{ duration: 0.8, delay: 2 }}
-            className="text-pink-300 text-xs sm:text-sm tracking-widest uppercase font-medium mt-4"
+        {/* Reduce friction */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={isLoaded ? { opacity: 1 } : {}}
+          transition={{ duration: 0.8, delay: 1.3 }}
+          className="mt-4 text-white/50 text-[10px] sm:text-sm tracking-wide whitespace-nowrap"
+          style={{ fontFamily: "'Montserrat', sans-serif" }}
+        >
+          Takes 30 seconds &bull; No commitment required
+        </motion.p>
+
+      </div>
+
+      {/* Transformations - pinned to bottom */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={isLoaded ? { opacity: 1 } : {}}
+        transition={{ duration: 0.8, delay: 1.5 }}
+        className="relative z-10 w-full pb-6 text-center"
+      >
+        <p className="text-white/50 text-[10px] sm:text-xs uppercase tracking-widest mb-3" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+          Real 90 day transformations
+        </p>
+        <div
+          className="w-full overflow-hidden relative"
+          style={{ maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' }}
+        >
+          <motion.div
+            className="flex gap-4 sm:gap-8"
+            animate={{ x: ['0%', '-50%'] }}
+            transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
           >
-            February offer &bull; 3 spots left
-          </motion.p>
+            {[1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((id, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-20 sm:w-32 md:w-36 rounded-lg overflow-hidden border border-white/5 opacity-60"
+                style={{ aspectRatio: '1/1' }}
+              >
+                <img
+                  src={`${process.env.PUBLIC_URL}/images/transformation-${id}.png`}
+                  alt={`Client transformation ${id}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </motion.div>
         </div>
-
-      </div>
+      </motion.div>
     </section>
   );
 };
 
-export default Hero; 
+export default Hero;

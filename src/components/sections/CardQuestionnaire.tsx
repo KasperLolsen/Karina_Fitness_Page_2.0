@@ -17,6 +17,7 @@ const CardQuestionnaire: React.FC = () => {
     name: "",
     email: "",
     phone: "",
+    instagram: "",
   });
 
   // Add loading and error states
@@ -113,7 +114,7 @@ const CardQuestionnaire: React.FC = () => {
                 ? "bg-[#9B5DE5] text-white"
                 : i === currentStep
                 ? "bg-[#9B5DE5] text-white ring-2 ring-[#9B5DE5]/50 ring-offset-2 ring-offset-transparent"
-                : "bg-white/10 text-white/40"
+                : "bg-[#9B5DE5]/10 text-[#9B5DE5]/40"
             }`}
           >
             {i < currentStep ? (
@@ -126,7 +127,7 @@ const CardQuestionnaire: React.FC = () => {
           </div>
         ))}
       </div>
-      <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+      <div className="w-full h-1.5 bg-[#9B5DE5]/10 rounded-full overflow-hidden">
         <div
           className="h-full bg-[#9B5DE5] rounded-full transition-all duration-400 ease-in-out"
           style={{ width: `${((currentStep + 1) / totalSteps) * 100}%` }}
@@ -136,8 +137,8 @@ const CardQuestionnaire: React.FC = () => {
   );
 
   const goalOptions = [
-    { id: "protein-princess", label: "Become a muscle mommy protein princess" },
-    { id: "weight-change", label: "Weight change" },
+    { id: "gain-muscle", label: "Gain Muscle" },
+    { id: "lose-fat", label: "Lose Fat" },
     { id: "lifestyle-change", label: "Change lifestyle and have a better everyday life" },
     { id: "other", label: "Other" },
   ];
@@ -148,16 +149,16 @@ const CardQuestionnaire: React.FC = () => {
       <motion.div 
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        className="w-full rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 backdrop-blur-md p-8 border border-primary/30 shadow-lg"
+        className="w-full rounded-xl bg-white/60 backdrop-blur-md p-8 border border-[#9B5DE5]/30 shadow-lg"
       >
         <div className="text-center">
-          <div className="w-20 h-20 bg-primary/20 rounded-full mx-auto flex items-center justify-center mb-6">
-            <svg className="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="w-20 h-20 bg-[#9B5DE5]/20 rounded-full mx-auto flex items-center justify-center mb-6">
+            <svg className="w-10 h-10 text-[#9B5DE5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h3 className="text-2xl font-bold text-white mb-3 uppercase text-center" style={{ fontFamily: "'Sequel', sans-serif" }}>Thank you for your inquiry!</h3>
-          <p className="text-white/70">
+          <h3 className="text-2xl font-bold text-[#9B5DE5] mb-3 uppercase text-center" style={{ fontFamily: "'Sequel', sans-serif" }}>Thank you for your inquiry!</h3>
+          <p className="text-[#9B5DE5]/70">
             I look forward to helping you reach your goals. You will hear from me within 1-2 business days to discuss how we can create results together.
           </p>
         </div>
@@ -170,7 +171,7 @@ const CardQuestionnaire: React.FC = () => {
     return (
       <div className="w-full">
         <ProgressBar />
-        <h3 className="text-base md:text-xl font-bold text-white mb-3 md:mb-5 uppercase text-center" style={{ fontFamily: "'Sequel', sans-serif" }}>What do you want to achieve?</h3>
+        <h3 className="text-base md:text-xl font-bold text-[#9B5DE5] mb-3 md:mb-5 uppercase text-center" style={{ fontFamily: "'Sequel', sans-serif" }}>What do you want to achieve?</h3>
         <div className="space-y-3">
           {/* Goal selection buttons */}
           {goalOptions.map((option) => (
@@ -179,8 +180,8 @@ const CardQuestionnaire: React.FC = () => {
               onClick={() => handleSelect(option.label)}
               className={`w-full rounded-xl transition-all duration-300 flex items-center justify-center text-sm md:text-base ${
                 selectedGoal === option.label
-                  ? "p-4 md:p-6 bg-black/40 border-2 border-primary/50 text-white shadow-lg"
-                  : "p-3 md:p-5 bg-white/10 border border-white/20 text-white hover:bg-white/20 hover:shadow-sm"
+                  ? "p-4 md:p-6 bg-[#9B5DE5]/20 border-2 border-[#9B5DE5]/50 text-[#9B5DE5] shadow-lg"
+                  : "p-3 md:p-5 bg-white/60 border border-[#9B5DE5]/20 text-[#9B5DE5] hover:bg-[#9B5DE5]/10 hover:shadow-sm"
               }`}
               whileHover={{ y: -2 }}
               whileTap={{ y: 0 }}
@@ -201,7 +202,7 @@ const CardQuestionnaire: React.FC = () => {
                 name="annetDetails"
                 value={answers.annetDetails}
                 onChange={handleChange}
-                className="w-full p-4 rounded-xl border border-white/20 bg-white/10 text-white text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 h-24 resize-none transition duration-200"
+                className="w-full p-4 rounded-xl border border-[#9B5DE5]/20 bg-white/60 text-[#9B5DE5] text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 h-24 resize-none transition duration-200"
                 placeholder="Tell us about your specific goals..."
               />
             </motion.div>
@@ -215,7 +216,7 @@ const CardQuestionnaire: React.FC = () => {
               className={`w-full p-3 md:p-4 rounded-xl text-white font-medium transition-all duration-300 ${
                 selectedGoal 
                   ? "bg-[#9B5DE5] hover:bg-[#8a4dd4] shadow-md hover:shadow-lg" 
-                  : "bg-white/20 cursor-not-allowed"
+                  : "bg-[#9B5DE5]/20 cursor-not-allowed text-[#9B5DE5]/40"
               }`}
               whileHover={selectedGoal ? { y: -2 } : {}}
               whileTap={selectedGoal ? { y: 0 } : {}}
@@ -230,8 +231,15 @@ const CardQuestionnaire: React.FC = () => {
 
   // If we're showing the age selection step
   if (currentStep === 1) {
+    const ageOptions = [
+      { id: "18-20", label: "18–20" },
+      { id: "20-25", label: "20–25" },
+      { id: "25-30", label: "25–30" },
+      { id: "30+", label: "30+" },
+    ];
+
     return (
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -20 }}
@@ -242,68 +250,42 @@ const CardQuestionnaire: React.FC = () => {
         <div className="flex items-center justify-center mb-5">
           <button
             onClick={prevStep}
-            className="mr-3 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white"
+            className="mr-3 w-8 h-8 rounded-full bg-[#9B5DE5]/10 hover:bg-[#9B5DE5]/20 flex items-center justify-center text-[#9B5DE5]"
           >
             ←
           </button>
-          <h3 className="text-xl font-bold text-white uppercase text-center" style={{ fontFamily: "'Sequel', sans-serif" }}>When were you born?</h3>
+          <h3 className="text-xl font-bold text-[#9B5DE5] uppercase text-center" style={{ fontFamily: "'Sequel', sans-serif" }}>How old are you?</h3>
         </div>
-        
-        <div className="mt-3">
-          <div className="flex gap-3">
-            <select
-              value={birthDay}
-              onChange={(e) => handleBirthDropdown("day", e.target.value)}
-              className="flex-1 p-3 md:p-4 rounded-xl border border-white/20 bg-white/10 text-white text-sm md:text-base text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition duration-200 appearance-none cursor-pointer"
+
+        <div className="space-y-3 mt-3">
+          {ageOptions.map((option) => (
+            <motion.button
+              key={option.id}
+              onClick={() => setAnswers((prev) => ({ ...prev, birthdate: option.label }))}
+              className={`w-full rounded-xl transition-all duration-300 flex items-center justify-center text-sm md:text-base ${
+                answers.birthdate === option.label
+                  ? "p-4 md:p-6 bg-[#9B5DE5]/20 border-2 border-[#9B5DE5]/50 text-[#9B5DE5] shadow-lg"
+                  : "p-3 md:p-5 bg-white/60 border border-[#9B5DE5]/20 text-[#9B5DE5] hover:bg-[#9B5DE5]/10 hover:shadow-sm"
+              }`}
+              whileHover={{ y: -2 }}
+              whileTap={{ y: 0 }}
             >
-              <option value="" disabled className="bg-gray-900">Day</option>
-              {Array.from({ length: 31 }, (_, i) => (
-                <option key={i + 1} value={String(i + 1)} className="bg-gray-900">
-                  {i + 1}
-                </option>
-              ))}
-            </select>
-            <select
-              value={birthMonth}
-              onChange={(e) => handleBirthDropdown("month", e.target.value)}
-              className="flex-[2] p-3 md:p-4 rounded-xl border border-white/20 bg-white/10 text-white text-sm md:text-base text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition duration-200 appearance-none cursor-pointer"
-            >
-              <option value="" disabled className="bg-gray-900">Month</option>
-              {months.map((m, i) => (
-                <option key={m} value={String(i + 1)} className="bg-gray-900">
-                  {m}
-                </option>
-              ))}
-            </select>
-            <select
-              value={birthYear}
-              onChange={(e) => handleBirthDropdown("year", e.target.value)}
-              className="flex-1 p-3 md:p-4 rounded-xl border border-white/20 bg-white/10 text-white text-sm md:text-base text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition duration-200 appearance-none cursor-pointer"
-            >
-              <option value="" disabled className="bg-gray-900">Year</option>
-              {Array.from({ length: 80 }, (_, i) => {
-                const year = new Date().getFullYear() - 10 - i;
-                return (
-                  <option key={year} value={String(year)} className="bg-gray-900">
-                    {year}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
+              <span className="font-medium">{option.label}</span>
+            </motion.button>
+          ))}
 
           {/* Next button */}
           <div className="mt-5 md:mt-8">
             <motion.button
               onClick={nextStep}
-              disabled={!isBirthdateComplete}
+              disabled={!answers.birthdate}
               className={`w-full p-3 md:p-4 rounded-xl text-white font-medium transition-all duration-300 ${
-                isBirthdateComplete
+                answers.birthdate
                   ? "bg-[#9B5DE5] hover:bg-[#8a4dd4] shadow-md hover:shadow-lg"
-                  : "bg-white/20 cursor-not-allowed"
+                  : "bg-[#9B5DE5]/20 cursor-not-allowed text-[#9B5DE5]/40"
               }`}
-              whileHover={isBirthdateComplete ? { y: -2 } : {}}
-              whileTap={isBirthdateComplete ? { y: 0 } : {}}
+              whileHover={answers.birthdate ? { y: -2 } : {}}
+              whileTap={answers.birthdate ? { y: 0 } : {}}
             >
               <span className="text-sm md:text-base">Next step</span>
             </motion.button>
@@ -327,22 +309,22 @@ const CardQuestionnaire: React.FC = () => {
         <div className="flex items-center justify-center mb-5">
           <button
             onClick={prevStep}
-            className="mr-3 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white"
+            className="mr-3 w-8 h-8 rounded-full bg-[#9B5DE5]/10 hover:bg-[#9B5DE5]/20 flex items-center justify-center text-[#9B5DE5]"
           >
             ←
           </button>
-          <h3 className="text-xl font-bold text-white uppercase text-center" style={{ fontFamily: "'Sequel', sans-serif" }}>Girl, tell me EVERYTHING</h3>
+          <h3 className="text-sm font-bold text-[#9B5DE5] uppercase text-center" style={{ fontFamily: "'Sequel', sans-serif" }}>What are you struggling with right now?</h3>
         </div>
         
         <div className="mt-3">
-          <p className="text-white/70 mb-4 text-center">
+          <p className="text-[#9B5DE5]/70 mb-4 text-center">
             Explain in a few sentences what you want to achieve through coaching.
           </p>
           <textarea
             name="moreDetails"
             value={answers.moreDetails}
             onChange={handleChange}
-            className="w-full p-4 rounded-xl border border-white/20 bg-white/10 text-white text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 h-32 resize-none transition duration-200"
+            className="w-full p-4 rounded-xl border border-[#9B5DE5]/20 bg-white/60 text-[#9B5DE5] text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 h-32 resize-none transition duration-200"
             placeholder="E.g. increase strength, build bigger muscles, lose weight, gain weight, build good habits, better quality of life, etc."
           />
           
@@ -376,16 +358,16 @@ const CardQuestionnaire: React.FC = () => {
         <div className="flex items-center justify-center mb-5">
           <button
             onClick={prevStep}
-            className="mr-3 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white"
+            className="mr-3 w-8 h-8 rounded-full bg-[#9B5DE5]/10 hover:bg-[#9B5DE5]/20 flex items-center justify-center text-[#9B5DE5]"
           >
             ←
           </button>
-          <h3 className="text-xl font-bold text-white uppercase text-center" style={{ fontFamily: "'Sequel', sans-serif" }}>Your contact information</h3>
+          <h3 className="text-xl font-bold text-[#9B5DE5] uppercase text-center" style={{ fontFamily: "'Sequel', sans-serif" }}>Your contact information</h3>
         </div>
         
         <div className="space-y-4 mt-3">
           <div>
-            <label htmlFor="name" className="block text-white/80 mb-1 font-medium text-center">
+            <label htmlFor="name" className="block text-[#9B5DE5]/80 mb-1 font-medium text-center">
               Name
             </label>
             <input
@@ -394,14 +376,14 @@ const CardQuestionnaire: React.FC = () => {
               id="name"
               value={answers.name}
               onChange={handleChange}
-              className="w-full p-3 md:p-4 rounded-xl border border-white/20 bg-white/10 text-white text-sm md:text-base text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition duration-200"
+              className="w-full p-3 md:p-4 rounded-xl border border-[#9B5DE5]/20 bg-white/60 text-[#9B5DE5] text-sm md:text-base text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition duration-200"
               placeholder="Your full name"
               required
             />
           </div>
           
           <div>
-            <label htmlFor="email" className="block text-white/80 mb-1 font-medium text-center">
+            <label htmlFor="email" className="block text-[#9B5DE5]/80 mb-1 font-medium text-center">
               Email
             </label>
             <input
@@ -410,15 +392,15 @@ const CardQuestionnaire: React.FC = () => {
               id="email"
               value={answers.email}
               onChange={handleChange}
-              className="w-full p-3 md:p-4 rounded-xl border border-white/20 bg-white/10 text-white text-sm md:text-base text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition duration-200"
+              className="w-full p-3 md:p-4 rounded-xl border border-[#9B5DE5]/20 bg-white/60 text-[#9B5DE5] text-sm md:text-base text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition duration-200"
               placeholder="your@email.com"
               required
             />
           </div>
           
           <div>
-            <label htmlFor="phone" className="block text-white/80 mb-1 font-medium text-center">
-              Phone
+            <label htmlFor="phone" className="block text-[#9B5DE5]/80 mb-1 font-medium text-center">
+              Phone <span className="text-[#9B5DE5]/40 text-xs font-normal">(optional)</span>
             </label>
             <input
               type="tel"
@@ -426,51 +408,38 @@ const CardQuestionnaire: React.FC = () => {
               id="phone"
               value={answers.phone}
               onChange={handleChange}
-              className="w-full p-3 md:p-4 rounded-xl border border-white/20 bg-white/10 text-white text-sm md:text-base text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition duration-200"
+              className="w-full p-3 md:p-4 rounded-xl border border-[#9B5DE5]/20 bg-white/60 text-[#9B5DE5] text-sm md:text-base text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition duration-200"
               placeholder="+47 XXX XX XXX"
-              required
+            />
+          </div>
+
+          <div>
+            <label htmlFor="instagram" className="block text-[#9B5DE5]/80 mb-1 font-medium text-center">
+              Instagram
+            </label>
+            <input
+              type="text"
+              name="instagram"
+              id="instagram"
+              value={answers.instagram}
+              onChange={handleChange}
+              className="w-full p-3 md:p-4 rounded-xl border border-[#9B5DE5]/20 bg-white/60 text-[#9B5DE5] text-sm md:text-base text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition duration-200"
+              placeholder="@yourusername"
             />
           </div>
           
-          {/* Deal checkbox */}
-          <div className="pt-2">
-            <label className="flex items-center gap-3 cursor-pointer group">
-              <input
-                type="checkbox"
-                checked={dealAccepted}
-                onChange={(e) => setDealAccepted(e.target.checked)}
-                className="w-5 h-5 rounded border-white/30 bg-white/10 text-[#9B5DE5] focus:ring-[#9B5DE5]/50 cursor-pointer accent-[#9B5DE5]"
-              />
-              <span className="text-white font-medium text-sm">{dealAccepted ? "Yes, we have a deal!" : "We have a deal?"}</span>
-              <a
-                href="#how-it-works"
-                className="text-white/40 text-xs hover:text-primary transition-colors ml-1"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const el = document.getElementById('how-it-works');
-                  if (el) el.scrollIntoView({ behavior: 'smooth' });
-                  const btn = el?.querySelector('button') as HTMLButtonElement;
-                  const content = el?.querySelector('.overflow-hidden');
-                  if (btn && !content) btn.click();
-                }}
-              >
-                What's the deal?
-              </a>
-            </label>
-          </div>
-
           {/* Submit button */}
           <div className="pt-4">
             <motion.button
               onClick={handleSubmit}
-              disabled={isSubmitting || !answers.name || !answers.email || !answers.phone || !dealAccepted}
+              disabled={isSubmitting || !answers.name || !answers.email}
               className={`w-full p-3 md:p-4 rounded-xl text-white font-medium transition-all duration-300 ${
-                isSubmitting || !answers.name || !answers.email || !answers.phone || !dealAccepted
+                isSubmitting || !answers.name || !answers.email
                   ? "bg-white/20 cursor-not-allowed"
                   : "bg-[#9B5DE5] hover:bg-[#8a4dd4] shadow-md hover:shadow-lg"
               }`}
-              whileHover={!isSubmitting && answers.name && answers.email && answers.phone && dealAccepted ? { y: -2 } : {}}
-              whileTap={!isSubmitting && answers.name && answers.email && answers.phone && dealAccepted ? { y: 0 } : {}}
+              whileHover={!isSubmitting && answers.name && answers.email ? { y: -2 } : {}}
+              whileTap={!isSubmitting && answers.name && answers.email ? { y: 0 } : {}}
             >
               {isSubmitting ? (
                 <span className="flex items-center justify-center">
@@ -491,7 +460,7 @@ const CardQuestionnaire: React.FC = () => {
               </p>
             )}
             
-            <p className="mt-4 text-xs text-white/50 text-center">
+            <p className="mt-4 text-xs text-[#9B5DE5]/50 text-center">
               By submitting this form, you agree that I may contact you regarding fitness services. I respect your privacy and your data will never be shared with third parties.
             </p>
           </div>

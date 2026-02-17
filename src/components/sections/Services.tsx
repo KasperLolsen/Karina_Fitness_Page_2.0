@@ -38,24 +38,27 @@ interface ImageServiceCardProps {
   delay?: number;
   icon?: React.ReactNode;
   imageObjectPosition?: string;
+  href?: string;
 }
 
-const ImageServiceCard: React.FC<ImageServiceCardProps> = ({ title, description, imageSrc, icon, delay = 0, imageObjectPosition = 'center 20%' }) => {
+const ImageServiceCard: React.FC<ImageServiceCardProps> = ({ title, description, imageSrc, icon, delay = 0, imageObjectPosition = 'center 20%', href }) => {
+  const Component = href ? 'a' : 'div';
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay }}
-      className="bg-black overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 group relative h-96"
-      whileHover={{ 
+      className={`bg-black overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 group relative h-96${href ? ' cursor-pointer' : ''}`}
+      whileHover={{
         y: -5,
         transition: { duration: 0.2 }
       }}
+      {...(href ? { onClick: () => { window.location.href = href; } } : {})}
     >
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent z-10"></div>
-      <img 
-        src={`${process.env.PUBLIC_URL}/${imageSrc}`} 
+      <img
+        src={`${process.env.PUBLIC_URL}/${imageSrc}`}
         alt={title}
         className="w-full h-full object-cover object-center absolute inset-0 brightness-110"
         style={{ objectPosition: imageObjectPosition }}
@@ -98,13 +101,15 @@ const Services: React.FC = () => {
             imageSrc="images/online-coaching.jpg"
             imageObjectPosition="center 40%"
             delay={0.1}
+            href="#contact"
           />
-          
+
           <ImageServiceCard
             title="Nutrition Planning"
             description="For princesses who want support, guidance and help creating sustainable meal plans tailored to specific goals."
             imageSrc="images/nutrition.jpg"
             delay={0.2}
+            href="#contact"
           />
           
           <ImageServiceCard
