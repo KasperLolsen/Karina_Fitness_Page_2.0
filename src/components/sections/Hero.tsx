@@ -64,7 +64,7 @@ const Hero: React.FC = () => {
           style={{ fontFamily: "'Montserrat', sans-serif" }}
         >
           Tired of starting over every Monday?<br />
-          I help women lose fat and keep it off <span className="italic underline decoration-2 underline-offset-4" style={{ fontFamily: "'Georgia', serif" }}>without gaining it back</span>.
+          I help women lose fat and keep it off <span className="italic underline decoration-2 underline-offset-4 whitespace-nowrap" style={{ fontFamily: "'Georgia', serif" }}>without gaining it back</span>.
         </motion.p>
 
         {/* CTA button */}
