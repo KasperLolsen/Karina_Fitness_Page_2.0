@@ -10,7 +10,13 @@ const resources = [
   },
   {
     title: "Volume Eating",
-    description: "Coming soon",
+    description: "Learn how to eat more food for fewer calories while staying full and satisfied.",
+    image: "/images/volume-eating.png",
+    link: "https://the-protein-princess.kit.com/volume",
+  },
+  {
+    title: "Coming Soon...",
+    description: "Stay tuned for more free resources!",
     image: null,
     link: "#",
   },
@@ -45,7 +51,7 @@ const FreeResources: React.FC = () => {
           </motion.div>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {resources.map((resource, index) => (
             <motion.a
               key={index}
@@ -54,7 +60,7 @@ const FreeResources: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
-              className={`bg-white/5 border border-pink-500/20 rounded-xl text-center hover:bg-white/10 hover:border-pink-400/40 transition-all duration-300 group backdrop-blur-sm hover:translate-y-[-4px] w-full md:w-80 overflow-hidden ${resource.image ? 'pb-8' : 'p-8'}`}
+              className={`bg-white/5 border border-pink-500/20 rounded-xl text-center hover:bg-white/10 hover:border-pink-400/40 transition-all duration-300 group backdrop-blur-sm hover:translate-y-[-4px] w-full overflow-hidden ${resource.image ? 'pb-8' : 'p-8'}`}
             >
               {resource.image ? (
                 <div className="w-full mb-5 rounded-lg overflow-hidden">

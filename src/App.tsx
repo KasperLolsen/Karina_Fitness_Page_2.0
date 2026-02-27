@@ -9,6 +9,7 @@ import Contact from "./components/sections/Contact";
 import TestimonialCarousel from "./components/sections/TestimonialCarousel";
 import AboutPage from "./pages/AboutPage";
 import FreeResourcesPage from "./pages/FreeResourcesPage";
+import ProgramsPage from "./pages/ProgramsPage";
 
 function HomePage() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/free-resources" element={<FreeResourcesPage />} />
+        <Route path="/programs" element={<ProgramsPage />} />
       </Routes>
     </Router>
   );

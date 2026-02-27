@@ -14,7 +14,8 @@ const Header: React.FC = () => {
   const navItems = [
     { href: "#home", label: "Home", isRoute: false },
     { href: "/about", label: "About", isRoute: true },
-    { href: "/free-resources", label: "Free Resources", isRoute: true }
+    { href: "/free-resources", label: "Free Resources", isRoute: true },
+    { href: "/programs", label: "Programs", isRoute: true }
   ];
 
   // Handle scroll event to change header style
