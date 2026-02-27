@@ -69,8 +69,8 @@ const ImageServiceCard: React.FC<ImageServiceCardProps> = ({ title, description,
             {icon}
           </div>
         )}
-        <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-primary transition-colors duration-300 uppercase" style={{ fontFamily: "'Sequel', sans-serif" }}>{title}</h3>
-        <p className="text-white/95 leading-relaxed">{description}</p>
+        <h3 className="text-2xl font-bold mb-4 text-primary uppercase" style={{ fontFamily: "'Sequel', sans-serif" }}>{title}</h3>
+        <p className="text-white/95 leading-relaxed min-h-[4.5rem]">{description}</p>
       </div>
     </motion.div>
   );
@@ -105,18 +105,19 @@ const Services: React.FC = () => {
           />
 
           <ImageServiceCard
-            title="Nutrition Planning"
-            description="For princesses who want support, guidance and help creating sustainable meal plans tailored to specific goals."
+            title="Free Resources"
+            description="Free guides and tools to kickstart your fitness journey — nutrition tips, volume eating, and more."
             imageSrc="images/nutrition.jpg"
             delay={0.2}
-            href="#contact"
+            href="/free-resources"
           />
-          
+
           <ImageServiceCard
             title="Buy Program"
             description="Pre-made training program as a more affordable alternative to coaching. One-time payment, no commitment or subscription."
             imageSrc="images/buy-program.jpg"
             delay={0.3}
+            href="/programs"
           />
         </div>
         
