@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 
 const programs = [
   {
-    title: "March 1st",
-    description: "Launching March 1st! Stay tuned.",
-    image: null,
-    link: "#",
+    title: "Shred Guide",
+    description: "Special offer: First 5 gets 50% off coaching!",
+    image: "/summer-shred.png",
+    link: "https://buy.stripe.com/bJe00jaxa79wfFD75l6sw03",
     featured: true,
   },
   {
@@ -55,40 +55,60 @@ const Programs: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          {programs.map((program, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className={`rounded-xl text-center transition-all duration-300 group backdrop-blur-sm hover:translate-y-[-4px] w-full overflow-hidden p-8 ${
-                program.featured
-                  ? 'bg-gradient-to-br from-pink-500/20 to-pink-600/10 border-2 border-pink-400/60 shadow-lg shadow-pink-500/20 scale-105'
-                  : 'bg-white/5 border border-pink-500/20 hover:bg-white/10 hover:border-pink-400/40'
-              }`}
-            >
-              <div className={`w-14 h-14 rounded-full inline-flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 ${
-                program.featured
-                  ? 'bg-pink-500/30 text-pink-300'
-                  : 'bg-pink-500/15 text-pink-400'
-              }`}>
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 11.293a1 1 0 101.414 1.414l2-2A1 1 0 0011 10V7z" clipRule="evenodd" />
-                </svg>
-              </div>
-              <div className="px-6">
-                <h3 className={`font-bold mb-3 uppercase ${
-                  program.featured ? 'text-2xl text-pink-300' : 'text-xl text-primary'
-                }`} style={{ fontFamily: 'Sequel, sans-serif' }}>
-                  {program.title}
-                </h3>
-                <p className="text-sm leading-relaxed mb-5" style={{ color: '#ffe7fd', fontFamily: 'Montserrat, sans-serif' }}>
-                  {program.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+          {programs.map((program, index) => {
+            const CardWrapper = program.link !== '#' ? 'a' : 'div';
+            const wrapperProps = program.link !== '#' ? { href: program.link, target: '_blank', rel: 'noopener noreferrer' } : {};
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+              >
+                <CardWrapper
+                  {...wrapperProps}
+                  className={`block rounded-xl text-center transition-all duration-300 group backdrop-blur-sm hover:translate-y-[-4px] w-full overflow-hidden p-8 ${
+                    program.link !== '#' ? 'cursor-pointer' : ''
+                  } ${
+                    program.featured
+                      ? 'bg-gradient-to-br from-pink-500/20 to-pink-600/10 border-2 border-pink-400/60 shadow-lg shadow-pink-500/20 scale-105'
+                      : 'bg-white/5 border border-pink-500/20 hover:bg-white/10 hover:border-pink-400/40'
+                  }`}
+                >
+                  {program.image ? (
+                    <div className="w-full mb-5 overflow-hidden rounded-lg">
+                      <img
+                        src={program.image}
+                        alt={program.title}
+                        className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  ) : (
+                    <div className={`w-14 h-14 rounded-full inline-flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 ${
+                      program.featured
+                        ? 'bg-pink-500/30 text-pink-300'
+                        : 'bg-pink-500/15 text-pink-400'
+                    }`}>
+                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 11.293a1 1 0 101.414 1.414l2-2A1 1 0 0011 10V7z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                  )}
+                  <div className="w-full">
+                    <h3 className={`font-bold mb-3 uppercase whitespace-nowrap text-center ${
+                      program.featured ? 'text-2xl text-pink-300' : 'text-xl text-primary'
+                    }`} style={{ fontFamily: 'Sequel, sans-serif' }}>
+                      {program.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed mb-5" style={{ color: '#ffe7fd', fontFamily: 'Montserrat, sans-serif' }}>
+                      {program.description}
+                    </p>
+                  </div>
+                </CardWrapper>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
