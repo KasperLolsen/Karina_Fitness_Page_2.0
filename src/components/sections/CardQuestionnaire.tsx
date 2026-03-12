@@ -368,7 +368,7 @@ const CardQuestionnaire: React.FC = () => {
         <div className="space-y-4 mt-3">
           <div>
             <label htmlFor="name" className="block text-[#9B5DE5]/80 mb-1 font-medium text-center">
-              Name
+              Name <span className="text-red-400 text-xs">*</span>
             </label>
             <input
               type="text"
@@ -384,7 +384,7 @@ const CardQuestionnaire: React.FC = () => {
           
           <div>
             <label htmlFor="email" className="block text-[#9B5DE5]/80 mb-1 font-medium text-center">
-              Email
+              Email <span className="text-red-400 text-xs">*</span>
             </label>
             <input
               type="email"
@@ -415,7 +415,7 @@ const CardQuestionnaire: React.FC = () => {
 
           <div>
             <label htmlFor="instagram" className="block text-[#9B5DE5]/80 mb-1 font-medium text-center">
-              Instagram
+              Instagram <span className="text-red-400 text-xs">*</span>
             </label>
             <input
               type="text"
@@ -425,6 +425,7 @@ const CardQuestionnaire: React.FC = () => {
               onChange={handleChange}
               className="w-full p-3 md:p-4 rounded-xl border border-[#9B5DE5]/20 bg-white/60 text-[#9B5DE5] text-sm md:text-base text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition duration-200"
               placeholder="@yourusername"
+              required
             />
           </div>
           
@@ -432,14 +433,14 @@ const CardQuestionnaire: React.FC = () => {
           <div className="pt-4">
             <motion.button
               onClick={handleSubmit}
-              disabled={isSubmitting || !answers.name || !answers.email}
+              disabled={isSubmitting || !answers.name || !answers.email || !answers.instagram}
               className={`w-full p-3 md:p-4 rounded-xl text-white font-medium transition-all duration-300 ${
-                isSubmitting || !answers.name || !answers.email
+                isSubmitting || !answers.name || !answers.email || !answers.instagram
                   ? "bg-white/20 cursor-not-allowed"
                   : "bg-[#9B5DE5] hover:bg-[#8a4dd4] shadow-md hover:shadow-lg"
               }`}
-              whileHover={!isSubmitting && answers.name && answers.email ? { y: -2 } : {}}
-              whileTap={!isSubmitting && answers.name && answers.email ? { y: 0 } : {}}
+              whileHover={!isSubmitting && answers.name && answers.email && answers.instagram ? { y: -2 } : {}}
+              whileTap={!isSubmitting && answers.name && answers.email && answers.instagram ? { y: 0 } : {}}
             >
               {isSubmitting ? (
                 <span className="flex items-center justify-center">

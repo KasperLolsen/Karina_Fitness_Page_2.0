@@ -20,6 +20,7 @@ interface FormData {
   name: string;
   email: string;
   phone: string;
+  instagram: string;
 }
 
 /**
@@ -72,6 +73,7 @@ export const sendFormDataToEmail = async (
 Name: ${formData.name || "Ikke angitt"}
 Email: ${formData.email || "Ikke angitt"}
 Phone: ${formData.phone || "Ikke angitt"}
+Instagram: ${formData.instagram || "Ikke angitt"}
 Birthdate: ${formData.birthdate || "Ikke angitt"}
 Service: ${formData.helpWith || "Ikke spesifisert"}
 ${formData.annetDetails ? `Annet Details: ${formData.annetDetails}` : ""}
