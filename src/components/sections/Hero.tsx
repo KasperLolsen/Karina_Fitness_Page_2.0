@@ -50,8 +50,8 @@ const Hero: React.FC = () => {
         >
           Lose fat without extreme dieting in<br />
           <span className="relative inline-block">
-            <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400" style={{ textShadow: 'none' }}>90 days</span>
-            <span className="absolute inset-0 blur-lg bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 opacity-50 z-0" />
+            <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-[#e91e63] via-pink-400 to-[#e91e63]" style={{ textShadow: 'none' }}>90 days</span>
+            <span className="absolute inset-0 blur-lg bg-gradient-to-r from-[#e91e63] via-pink-500 to-[#e91e63] opacity-50 z-0" />
           </span>
         </motion.h1>
 
@@ -76,9 +76,9 @@ const Hero: React.FC = () => {
         >
           <a
             href="#contact"
-            className="group relative inline-flex items-center justify-center px-6 py-2.5 text-xs sm:text-base md:text-lg sm:px-12 sm:py-4 rounded-full font-bold tracking-wide uppercase transition-all duration-300 shadow-[0_0_25px_rgba(196,113,237,0.4)] hover:shadow-[0_0_40px_rgba(196,113,237,0.6)] hover:scale-105 overflow-hidden"
+            className="group relative inline-flex items-center justify-center px-6 py-2.5 text-xs sm:text-base md:text-lg sm:px-12 sm:py-4 rounded-full font-bold tracking-wide uppercase transition-all duration-300 shadow-[0_0_25px_rgba(233,30,99,0.4)] hover:shadow-[0_0_40px_rgba(233,30,99,0.6)] hover:scale-105 overflow-hidden"
             style={{
-              background: 'linear-gradient(135deg, #c471ed 0%, #f64f59 100%)',
+              background: 'linear-gradient(135deg, #e91e63 0%, #f64f59 100%)',
               color: '#fff',
               fontFamily: "'Sequel', sans-serif",
             }}

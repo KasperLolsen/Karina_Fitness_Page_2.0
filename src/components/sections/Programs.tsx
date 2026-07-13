@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 const programs = [
   {
     title: "Shred Guide",
-    description: "Special offer: First 5 gets 50% off coaching!",
+    description: "A step-by-step ebook guide to losing fat without extreme dieting.",
     image: "/summer-shred.png",
-    link: "https://buy.stripe.com/bJe00jaxa79wfFD75l6sw03",
+    link: "https://buy.stripe.com/dRm5kDfRu8dAalj89p6sw04",
     featured: true,
   },
   {
@@ -41,8 +41,7 @@ const Programs: React.FC = () => {
         <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-5 tracking-tight text-primary uppercase" style={{ fontFamily: 'Sequel, sans-serif' }}>
@@ -62,8 +61,7 @@ const Programs: React.FC = () => {
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
               >
                 <CardWrapper

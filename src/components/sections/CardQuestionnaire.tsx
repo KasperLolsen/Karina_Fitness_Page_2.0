@@ -111,10 +111,10 @@ const CardQuestionnaire: React.FC = () => {
             key={i}
             className={`w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs md:text-sm font-medium transition-all duration-300 ${
               i < currentStep
-                ? "bg-[#9B5DE5] text-white"
+                ? "bg-[#e91e63] text-white"
                 : i === currentStep
-                ? "bg-[#9B5DE5] text-white ring-2 ring-[#9B5DE5]/50 ring-offset-2 ring-offset-transparent"
-                : "bg-[#9B5DE5]/10 text-[#9B5DE5]/40"
+                ? "bg-[#e91e63] text-white ring-2 ring-[#e91e63]/50 ring-offset-2 ring-offset-transparent"
+                : "bg-[#e91e63]/10 text-[#e91e63]/40"
             }`}
           >
             {i < currentStep ? (
@@ -127,9 +127,9 @@ const CardQuestionnaire: React.FC = () => {
           </div>
         ))}
       </div>
-      <div className="w-full h-1.5 bg-[#9B5DE5]/10 rounded-full overflow-hidden">
+      <div className="w-full h-1.5 bg-[#e91e63]/10 rounded-full overflow-hidden">
         <div
-          className="h-full bg-[#9B5DE5] rounded-full transition-all duration-400 ease-in-out"
+          className="h-full bg-[#e91e63] rounded-full transition-all duration-400 ease-in-out"
           style={{ width: `${((currentStep + 1) / totalSteps) * 100}%` }}
         />
       </div>
@@ -149,16 +149,16 @@ const CardQuestionnaire: React.FC = () => {
       <motion.div 
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        className="w-full rounded-xl bg-white/60 backdrop-blur-md p-8 border border-[#9B5DE5]/30 shadow-lg"
+        className="w-full rounded-xl bg-white/60 backdrop-blur-md p-8 border border-[#e91e63]/30 shadow-lg"
       >
         <div className="text-center">
-          <div className="w-20 h-20 bg-[#9B5DE5]/20 rounded-full mx-auto flex items-center justify-center mb-6">
-            <svg className="w-10 h-10 text-[#9B5DE5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="w-20 h-20 bg-[#e91e63]/20 rounded-full mx-auto flex items-center justify-center mb-6">
+            <svg className="w-10 h-10 text-[#e91e63]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h3 className="text-2xl font-bold text-[#9B5DE5] mb-3 uppercase text-center" style={{ fontFamily: "'Sequel', sans-serif" }}>Thank you for your inquiry!</h3>
-          <p className="text-[#9B5DE5]/70">
+          <h3 className="text-2xl font-bold text-[#e91e63] mb-3 uppercase text-center" style={{ fontFamily: "'Sequel', sans-serif" }}>Thank you for your inquiry!</h3>
+          <p className="text-[#e91e63]/70">
             I look forward to helping you reach your goals. You will hear from me within 1-2 business days to discuss how we can create results together.
           </p>
         </div>
@@ -171,7 +171,7 @@ const CardQuestionnaire: React.FC = () => {
     return (
       <div className="w-full">
         <ProgressBar />
-        <h3 className="text-base md:text-xl font-bold text-[#9B5DE5] mb-3 md:mb-5 uppercase text-center" style={{ fontFamily: "'Sequel', sans-serif" }}>What do you want to achieve?</h3>
+        <h3 className="text-base md:text-xl font-bold text-[#e91e63] mb-3 md:mb-5 uppercase text-center" style={{ fontFamily: "'Sequel', sans-serif" }}>What do you want to achieve?</h3>
         <div className="space-y-3">
           {/* Goal selection buttons */}
           {goalOptions.map((option) => (
@@ -180,8 +180,8 @@ const CardQuestionnaire: React.FC = () => {
               onClick={() => handleSelect(option.label)}
               className={`w-full rounded-xl transition-all duration-300 flex items-center justify-center text-sm md:text-base ${
                 selectedGoal === option.label
-                  ? "p-4 md:p-6 bg-[#9B5DE5]/20 border-2 border-[#9B5DE5]/50 text-[#9B5DE5] shadow-lg"
-                  : "p-3 md:p-5 bg-white/60 border border-[#9B5DE5]/20 text-[#9B5DE5] hover:bg-[#9B5DE5]/10 hover:shadow-sm"
+                  ? "p-4 md:p-6 bg-[#e91e63]/20 border-2 border-[#e91e63]/50 text-[#e91e63] shadow-lg"
+                  : "p-3 md:p-5 bg-white/60 border border-[#e91e63]/20 text-[#e91e63] hover:bg-[#e91e63]/10 hover:shadow-sm"
               }`}
               whileHover={{ y: -2 }}
               whileTap={{ y: 0 }}
@@ -202,7 +202,7 @@ const CardQuestionnaire: React.FC = () => {
                 name="annetDetails"
                 value={answers.annetDetails}
                 onChange={handleChange}
-                className="w-full p-4 rounded-xl border border-[#9B5DE5]/20 bg-white/60 text-[#9B5DE5] text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 h-24 resize-none transition duration-200"
+                className="w-full p-4 rounded-xl border border-[#e91e63]/20 bg-white/60 text-[#e91e63] text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 h-24 resize-none transition duration-200"
                 placeholder="Tell us about your specific goals..."
               />
             </motion.div>
@@ -215,8 +215,8 @@ const CardQuestionnaire: React.FC = () => {
               disabled={!selectedGoal}
               className={`w-full p-3 md:p-4 rounded-xl text-white font-medium transition-all duration-300 ${
                 selectedGoal 
-                  ? "bg-[#9B5DE5] hover:bg-[#8a4dd4] shadow-md hover:shadow-lg" 
-                  : "bg-[#9B5DE5]/20 cursor-not-allowed text-[#9B5DE5]/40"
+                  ? "bg-[#e91e63] hover:bg-[#c2185b] shadow-md hover:shadow-lg" 
+                  : "bg-[#e91e63]/20 cursor-not-allowed text-[#e91e63]/40"
               }`}
               whileHover={selectedGoal ? { y: -2 } : {}}
               whileTap={selectedGoal ? { y: 0 } : {}}
@@ -250,11 +250,11 @@ const CardQuestionnaire: React.FC = () => {
         <div className="flex items-center justify-center mb-5">
           <button
             onClick={prevStep}
-            className="mr-3 w-8 h-8 rounded-full bg-[#9B5DE5]/10 hover:bg-[#9B5DE5]/20 flex items-center justify-center text-[#9B5DE5]"
+            className="mr-3 w-8 h-8 rounded-full bg-[#e91e63]/10 hover:bg-[#e91e63]/20 flex items-center justify-center text-[#e91e63]"
           >
             ←
           </button>
-          <h3 className="text-xl font-bold text-[#9B5DE5] uppercase text-center" style={{ fontFamily: "'Sequel', sans-serif" }}>How old are you?</h3>
+          <h3 className="text-xl font-bold text-[#e91e63] uppercase text-center" style={{ fontFamily: "'Sequel', sans-serif" }}>How old are you?</h3>
         </div>
 
         <div className="space-y-3 mt-3">
@@ -264,8 +264,8 @@ const CardQuestionnaire: React.FC = () => {
               onClick={() => setAnswers((prev) => ({ ...prev, birthdate: option.label }))}
               className={`w-full rounded-xl transition-all duration-300 flex items-center justify-center text-sm md:text-base ${
                 answers.birthdate === option.label
-                  ? "p-4 md:p-6 bg-[#9B5DE5]/20 border-2 border-[#9B5DE5]/50 text-[#9B5DE5] shadow-lg"
-                  : "p-3 md:p-5 bg-white/60 border border-[#9B5DE5]/20 text-[#9B5DE5] hover:bg-[#9B5DE5]/10 hover:shadow-sm"
+                  ? "p-4 md:p-6 bg-[#e91e63]/20 border-2 border-[#e91e63]/50 text-[#e91e63] shadow-lg"
+                  : "p-3 md:p-5 bg-white/60 border border-[#e91e63]/20 text-[#e91e63] hover:bg-[#e91e63]/10 hover:shadow-sm"
               }`}
               whileHover={{ y: -2 }}
               whileTap={{ y: 0 }}
@@ -281,8 +281,8 @@ const CardQuestionnaire: React.FC = () => {
               disabled={!answers.birthdate}
               className={`w-full p-3 md:p-4 rounded-xl text-white font-medium transition-all duration-300 ${
                 answers.birthdate
-                  ? "bg-[#9B5DE5] hover:bg-[#8a4dd4] shadow-md hover:shadow-lg"
-                  : "bg-[#9B5DE5]/20 cursor-not-allowed text-[#9B5DE5]/40"
+                  ? "bg-[#e91e63] hover:bg-[#c2185b] shadow-md hover:shadow-lg"
+                  : "bg-[#e91e63]/20 cursor-not-allowed text-[#e91e63]/40"
               }`}
               whileHover={answers.birthdate ? { y: -2 } : {}}
               whileTap={answers.birthdate ? { y: 0 } : {}}
@@ -309,22 +309,22 @@ const CardQuestionnaire: React.FC = () => {
         <div className="flex items-center justify-center mb-5">
           <button
             onClick={prevStep}
-            className="mr-3 w-8 h-8 rounded-full bg-[#9B5DE5]/10 hover:bg-[#9B5DE5]/20 flex items-center justify-center text-[#9B5DE5]"
+            className="mr-3 w-8 h-8 rounded-full bg-[#e91e63]/10 hover:bg-[#e91e63]/20 flex items-center justify-center text-[#e91e63]"
           >
             ←
           </button>
-          <h3 className="text-sm font-bold text-[#9B5DE5] uppercase text-center" style={{ fontFamily: "'Sequel', sans-serif" }}>What are you struggling with right now?</h3>
+          <h3 className="text-sm font-bold text-[#e91e63] uppercase text-center" style={{ fontFamily: "'Sequel', sans-serif" }}>What are you struggling with right now?</h3>
         </div>
         
         <div className="mt-3">
-          <p className="text-[#9B5DE5]/70 mb-4 text-center">
+          <p className="text-[#e91e63]/70 mb-4 text-center">
             Explain in a few sentences what you want to achieve through coaching.
           </p>
           <textarea
             name="moreDetails"
             value={answers.moreDetails}
             onChange={handleChange}
-            className="w-full p-4 rounded-xl border border-[#9B5DE5]/20 bg-white/60 text-[#9B5DE5] text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 h-32 resize-none transition duration-200"
+            className="w-full p-4 rounded-xl border border-[#e91e63]/20 bg-white/60 text-[#e91e63] text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 h-32 resize-none transition duration-200"
             placeholder="E.g. increase strength, build bigger muscles, lose weight, gain weight, build good habits, better quality of life, etc."
           />
           
@@ -332,7 +332,7 @@ const CardQuestionnaire: React.FC = () => {
           <div className="flex gap-4 mt-6">
             <motion.button
               onClick={nextStep}
-              className="w-full p-4 bg-[#9B5DE5] hover:bg-[#8a4dd4] rounded-xl text-white font-medium transition-all duration-300 shadow-md hover:shadow-lg"
+              className="w-full p-4 bg-[#e91e63] hover:bg-[#c2185b] rounded-xl text-white font-medium transition-all duration-300 shadow-md hover:shadow-lg"
               whileHover={{ y: -2 }}
               whileTap={{ y: 0 }}
             >
@@ -358,16 +358,16 @@ const CardQuestionnaire: React.FC = () => {
         <div className="flex items-center justify-center mb-5">
           <button
             onClick={prevStep}
-            className="mr-3 w-8 h-8 rounded-full bg-[#9B5DE5]/10 hover:bg-[#9B5DE5]/20 flex items-center justify-center text-[#9B5DE5]"
+            className="mr-3 w-8 h-8 rounded-full bg-[#e91e63]/10 hover:bg-[#e91e63]/20 flex items-center justify-center text-[#e91e63]"
           >
             ←
           </button>
-          <h3 className="text-xl font-bold text-[#9B5DE5] uppercase text-center" style={{ fontFamily: "'Sequel', sans-serif" }}>Your contact information</h3>
+          <h3 className="text-xl font-bold text-[#e91e63] uppercase text-center" style={{ fontFamily: "'Sequel', sans-serif" }}>Your contact information</h3>
         </div>
         
         <div className="space-y-4 mt-3">
           <div>
-            <label htmlFor="name" className="block text-[#9B5DE5]/80 mb-1 font-medium text-center">
+            <label htmlFor="name" className="block text-[#e91e63]/80 mb-1 font-medium text-center">
               Name <span className="text-red-400 text-xs">*</span>
             </label>
             <input
@@ -376,14 +376,14 @@ const CardQuestionnaire: React.FC = () => {
               id="name"
               value={answers.name}
               onChange={handleChange}
-              className="w-full p-3 md:p-4 rounded-xl border border-[#9B5DE5]/20 bg-white/60 text-[#9B5DE5] text-sm md:text-base text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition duration-200"
+              className="w-full p-3 md:p-4 rounded-xl border border-[#e91e63]/20 bg-white/60 text-[#e91e63] text-sm md:text-base text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition duration-200"
               placeholder="Your full name"
               required
             />
           </div>
           
           <div>
-            <label htmlFor="email" className="block text-[#9B5DE5]/80 mb-1 font-medium text-center">
+            <label htmlFor="email" className="block text-[#e91e63]/80 mb-1 font-medium text-center">
               Email <span className="text-red-400 text-xs">*</span>
             </label>
             <input
@@ -392,15 +392,15 @@ const CardQuestionnaire: React.FC = () => {
               id="email"
               value={answers.email}
               onChange={handleChange}
-              className="w-full p-3 md:p-4 rounded-xl border border-[#9B5DE5]/20 bg-white/60 text-[#9B5DE5] text-sm md:text-base text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition duration-200"
+              className="w-full p-3 md:p-4 rounded-xl border border-[#e91e63]/20 bg-white/60 text-[#e91e63] text-sm md:text-base text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition duration-200"
               placeholder="your@email.com"
               required
             />
           </div>
           
           <div>
-            <label htmlFor="phone" className="block text-[#9B5DE5]/80 mb-1 font-medium text-center">
-              Phone <span className="text-[#9B5DE5]/40 text-xs font-normal">(optional)</span>
+            <label htmlFor="phone" className="block text-[#e91e63]/80 mb-1 font-medium text-center">
+              Phone <span className="text-[#e91e63]/40 text-xs font-normal">(optional)</span>
             </label>
             <input
               type="tel"
@@ -408,13 +408,13 @@ const CardQuestionnaire: React.FC = () => {
               id="phone"
               value={answers.phone}
               onChange={handleChange}
-              className="w-full p-3 md:p-4 rounded-xl border border-[#9B5DE5]/20 bg-white/60 text-[#9B5DE5] text-sm md:text-base text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition duration-200"
+              className="w-full p-3 md:p-4 rounded-xl border border-[#e91e63]/20 bg-white/60 text-[#e91e63] text-sm md:text-base text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition duration-200"
               placeholder="+47 XXX XX XXX"
             />
           </div>
 
           <div>
-            <label htmlFor="instagram" className="block text-[#9B5DE5]/80 mb-1 font-medium text-center">
+            <label htmlFor="instagram" className="block text-[#e91e63]/80 mb-1 font-medium text-center">
               Instagram <span className="text-red-400 text-xs">*</span>
             </label>
             <input
@@ -423,7 +423,7 @@ const CardQuestionnaire: React.FC = () => {
               id="instagram"
               value={answers.instagram}
               onChange={handleChange}
-              className="w-full p-3 md:p-4 rounded-xl border border-[#9B5DE5]/20 bg-white/60 text-[#9B5DE5] text-sm md:text-base text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition duration-200"
+              className="w-full p-3 md:p-4 rounded-xl border border-[#e91e63]/20 bg-white/60 text-[#e91e63] text-sm md:text-base text-center focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition duration-200"
               placeholder="@yourusername"
               required
             />
@@ -437,7 +437,7 @@ const CardQuestionnaire: React.FC = () => {
               className={`w-full p-3 md:p-4 rounded-xl text-white font-medium transition-all duration-300 ${
                 isSubmitting || !answers.name || !answers.email || !answers.instagram
                   ? "bg-white/20 cursor-not-allowed"
-                  : "bg-[#9B5DE5] hover:bg-[#8a4dd4] shadow-md hover:shadow-lg"
+                  : "bg-[#e91e63] hover:bg-[#c2185b] shadow-md hover:shadow-lg"
               }`}
               whileHover={!isSubmitting && answers.name && answers.email && answers.instagram ? { y: -2 } : {}}
               whileTap={!isSubmitting && answers.name && answers.email && answers.instagram ? { y: 0 } : {}}
@@ -461,7 +461,7 @@ const CardQuestionnaire: React.FC = () => {
               </p>
             )}
             
-            <p className="mt-4 text-xs text-[#9B5DE5]/50 text-center">
+            <p className="mt-4 text-xs text-[#e91e63]/50 text-center">
               By submitting this form, you agree that I may contact you regarding fitness services. I respect your privacy and your data will never be shared with third parties.
             </p>
           </div>
